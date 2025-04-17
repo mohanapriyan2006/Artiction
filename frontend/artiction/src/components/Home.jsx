@@ -3,38 +3,15 @@ import Header from './home/Header';
 import WhyUs from './home/WhyUs';
 import Featured from './home/Featured';
 import Community from './home/Community';
+import '../styles/Home.css';
 
 const Home = () => {
   return (
-    <div className='home'>
+    <div className='home m-auto'>
         <Header/>
         <WhyUs/>
-        <Featured/>
-        <Community/>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
-        <p>jfjksivndi</p>
+        {/* <Featured/>
+        <Community/> */}
     </div>
   )
 }

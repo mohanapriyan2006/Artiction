@@ -1,0 +1,38 @@
+
+
+/* home-header */
+.oval-btn {
+    margin-left: 10px;
+    background: var(--blue-dk);
+    transform: rotate(-10.35deg);
+    font-weight: 600;
+    color: #FFFFFF;
+    padding: 15px 35px;
+    border-radius: 50%;
+    box-shadow: rgb(38, 57, 77) 0px 18px 30px -15px;
+    cursor: pointer;
+}
+
+.oval-btn:hover{
+    scale: 102%;
+    box-shadow: rgb(29, 33, 255) 0px 18px 30px -14px;
+
+}
+
+
+/* home-whyUs */
+
+.divider{
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    gap: 10px;
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+.divider span:nth-child(odd){
+    height: 8px;
+    background-color: var(--blue-dk);
+    border-radius: 5px;
+    color: transparent;
+}

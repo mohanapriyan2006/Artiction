@@ -12,24 +12,34 @@
     --font1: "Poppins", sans-serif;
     --font2: 'Times New Roman';
     --font2-style: italic;
+    --font2-lg: 60px;
+    --font2-sm: 32px;
 }
 
 /* clean-up */
-*{
+body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--font1);
+    transition: all ease-in-out;
 }
 
-body{
-    font-family: var(--font1);
-}
 
 @layer utilities {
     .font2 {
         font-family: var(--font2);
         font-style: var(--font2-style);
+        font-weight: bold;
     }
+
+    .font2-lg{
+        font-size: var(--font2-lg);
+    }
+    .font2-sm{
+        font-size: var(--font2-sm);
+    }
+
 
     .blue-dk {
         color: var(--blue-dk);
@@ -54,4 +64,18 @@ body{
     .bg-blue-lt {
         background-color: var(--blue-lt);
     }
+
+    .box-shadow{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border: 0.5px solid rgb(214, 214, 214);
+        border-radius: 10px;
+        cursor: pointer;
+    }
+}
+
+.box-shadow:hover,
+.box-shadow:focus{
+    box-shadow: rgba(8, 28, 252, 0.44) 0px 3px 8px;
+    border: 0.2px solid rgb(149, 132, 255);
+    scale: 102%;
 }

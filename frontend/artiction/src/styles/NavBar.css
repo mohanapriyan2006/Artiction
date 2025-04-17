@@ -15,9 +15,7 @@
     background-color: var(--blue-md);
     color: white;
     font-weight: 600;
-    padding: 4px 20px;
-    position: relative;
-    top: -10%;
+    padding: 4px 30px;
     cursor: pointer;
 }
 
