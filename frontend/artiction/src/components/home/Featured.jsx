@@ -11,13 +11,13 @@ const Featured = () => {
       
       <div className="divider mt-15">
         <span>-</span>
-        <b className='font2 font-bold text-[32px] -mt-5'> Featured Artworks </b>
+        <b className='font2 font-bold  text-[28px] sm:text-[32px] -mt-5'> Featured Artworks </b>
         <span>-</span>
       </div>
 
       {/* A Collection of Masterpieces */}
       <div className="title flex flex-col items-center mt-5 ">
-        <b className='font2 font-bold text-[30px]'>A Collection of Masterpieces</b>
+        <b className='font2 font-bold sm:text-[30px] text-[22px] text-center'>A Collection of Masterpieces</b>
         <span className='title-line w-25'>-</span>
       </div>
 
@@ -33,13 +33,13 @@ const Featured = () => {
         <div className='flex justify-around gap-10'>
           <img className='md:w-50 md:h-auto w-40 h-50' src={img1} alt="img" />
           <img className='md:w-50 md:h-auto w-40 h-50' src={img2} alt="img" />
-          <img className='md:w-50 md:h-auto w-40 h-50' src={img3} alt="img" />
+          <img className='md:w-50 md:h-auto sm:block hidden w-40 h-50' src={img3} alt="img" />
         </div>
       </div>
 
       {/* Live & Upcoming Auctions */}
       <div className="title flex flex-col items-center mt-15 ">
-        <b className='font2 font-bold text-[30px]'>Live & Upcoming Auctions</b>
+        <b className='font2 font-bold sm:text-[30px] text-[22px]  text-center'>Live & Upcoming Auctions</b>
         <span className='title-line w-25'>-</span>
       </div>
 

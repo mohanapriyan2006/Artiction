@@ -45,7 +45,7 @@ const WhyUs = () => {
     <div className='home-whyus mt-20'>
       <div className="divider">
         <span>-</span>
-        <b className='font2 font-bold text-[32px] -mt-5'>Why choose us ?</b>
+        <b className='font2 font-bold text-[28px] sm:text-[32px] -mt-5'>Why choose us ?</b>
         <span>-</span>
       </div>
 

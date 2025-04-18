@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Arizonia&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Guerrilla&display=swap');
 
-.logo p {
+.logo h1 {
     font-family: 'Arizonia';
     font-style: normal;
     font-weight: 400;
@@ -9,18 +9,25 @@
     cursor: pointer;
 }
 
-.logo p:hover {
+.logo h1:hover {
     scale: 102%;
 }
 
 .log-btn {
     border-radius: 10px;
-    background-color: var(--blue-md);
+    background-color: var(--blue-dk);
     color: white;
     font-weight: 600;
     padding: 4px 30px;
     cursor: pointer;
 }
+
+.log-btn:hover,
+.log-btn:focus {
+    background-color: var(--blue-md);
+    scale: 102%;
+}
+
 
 .links li {
     cursor: pointer;
@@ -31,11 +38,6 @@
     color: var(--blue-md);
 }
 
-.log-btn:hover,
-.log-btn:focus {
-    background-color: var(--blue-lt);
-    scale: 102%;
-}
 
 .active::after {
     content: ' ';
@@ -63,6 +65,7 @@
     animation: menu 0.2s forwards ease-out;
 }
 
+
 @keyframes menu {
     0%{
         top: 0px;
@@ -76,6 +79,34 @@
         top: 64px;
     }
 }
+
+
+.menu-hide {
+    animation: menu-hide 0.2s forwards ease;
+}
+
+@keyframes menu-hide {
+    0%{
+        top: 64px;
+    }
+
+    50%{
+        top: 20px;
+    }
+
+    80%{
+        top: -40px;
+
+    }
+    99%{
+        top: -100px;
+
+    }
+    100%{
+        top: -300px;
+    }
+}
+
 
 
 .NavBar {

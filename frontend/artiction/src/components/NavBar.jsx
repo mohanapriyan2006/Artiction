@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/NavBar.css'
+import '../styles/NavBar.css';
 
 const NavBar = () => {
 
@@ -15,7 +15,7 @@ const NavBar = () => {
     return (
         <div className='NavBar z-1000  h-18 bg-white flex justify-between m-auto items-center sticky top-0'>
             <div className="logo w-40 z-99999 bg-white">
-                <p className='md:ml-10 ml-2 text-[var(--blue-dk)]'>Artiction</p>
+                <h1 className='md:ml-10 ml-2 text-[var(--blue-dk)]'>Artiction</h1>
             </div>
 
             {/* desktop nav */}
@@ -41,39 +41,39 @@ const NavBar = () => {
             </div>
 
             {/* mobile toggled menu */}
-            {isMenuOpen && (
-                <div className="mobile-menu-div md:hidden absolute top-0 z-100 left-0 right-0 bg-white shadow-lg py-4 px-6">
-                    <ul className='links flex flex-col gap-4'>
-                        <li
-                            className={`font-semibold py-2 ${active === 'home' ? 'active blue-md' : ''}`}
-                            onClick={() => {
-                                setActive('home');
-                            }}
-                        >
-                            Home
-                        </li>
-                        <li
-                            className={`font-semibold py-2 ${active === 'artworks' ? 'active blue-md' : ''}`}
-                            onClick={() => {
-                                setActive('artworks');
-                            }}
-                        >
-                            Artworks
-                        </li>
-                        <li
-                            className={`font-semibold py-2 ${active === 'auction' ? 'active blue-md' : ''}`}
-                            onClick={() => {
-                                setActive('auction');
-                            }}
-                        >
-                            Auction
-                        </li>
-                        <li className='font-semibold py-2'>
-                            <button className='log-btn'>Login</button>
-                        </li>
-                    </ul>
-                </div>
-            )}
+
+            <div className={`${isMenuOpen? 'mobile-menu-div': 'menu-hide'} md:hidden absolute z-100 left-0 right-0 bg-white shadow-lg py-4 px-6`}>
+                <ul className='links flex flex-col gap-4'>
+                    <li
+                        className={`font-semibold py-2 ${active === 'home' ? 'active blue-md' : ''}`}
+                        onClick={() => {
+                            setActive('home');
+                        }}
+                    >
+                        Home
+                    </li>
+                    <li
+                        className={`font-semibold py-2 ${active === 'artworks' ? 'active blue-md' : ''}`}
+                        onClick={() => {
+                            setActive('artworks');
+                        }}
+                    >
+                        Artworks
+                    </li>
+                    <li
+                        className={`font-semibold py-2 ${active === 'auction' ? 'active blue-md' : ''}`}
+                        onClick={() => {
+                            setActive('auction');
+                        }}
+                    >
+                        Auction
+                    </li>
+                    <li className='font-semibold py-2'>
+                        <button className='log-btn'>Login</button>
+                    </li>
+                </ul>
+            </div>
+
         </div>
     )
 }

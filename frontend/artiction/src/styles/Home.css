@@ -2,6 +2,13 @@
     line-height: 65px;
 }
 
+@media screen and (max-width: 639px) {
+    .header_content h1 {
+        line-height: 35px;
+    }
+
+}
+
 .cross-divider {
     color: transparent;
     background-color: var(--blue-md);
@@ -10,7 +17,7 @@
     border-radius: 5px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
     .cross-divider {
         width: 280px;
         height: 4px;
@@ -19,16 +26,16 @@
 }
 
 
-.subscribe-form input{
+.subscribe-form input {
     border: dashed var(--blue-md);
-    width: 50%;
+    /* width: 50%; */
     height: 40px;
     border-radius: 3px;
     font-size: 16px;
     text-align: center;
 }
 
-.subscribe-form button{
+.subscribe-form button {
     background-color: var(--blue-dk);
     color: white;
     height: 40px;
@@ -37,7 +44,7 @@
     cursor: pointer;
 }
 
-.subscribe-form button:hover{
+.subscribe-form button:hover {
     background-color: var(--blue-md);
     scale: 102%;
 }
