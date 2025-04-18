@@ -6,8 +6,11 @@
     font-weight: 400;
     font-size: 40px;
     line-height: 60px;
-    color: var(--blue-dk);
+    cursor: pointer;
+}
 
+.logo p:hover {
+    scale: 102%;
 }
 
 .log-btn {
@@ -19,6 +22,15 @@
     cursor: pointer;
 }
 
+.links li {
+    cursor: pointer;
+}
+
+.links li:hover {
+    letter-spacing: 0.2px;
+    color: var(--blue-md);
+}
+
 .log-btn:hover,
 .log-btn:focus {
     background-color: var(--blue-lt);
@@ -28,8 +40,8 @@
 .active::after {
     content: ' ';
     display: block;
-    width: 100%;
-    animation: grow 0.3s forwards 0.1s ease-in-out;
+    width: 0%;
+    animation: grow 0.5s forwards ease-in;
     border-bottom: solid var(--blue-md) 3px;
 }
 
@@ -45,4 +57,28 @@
     100% {
         width: 100%;
     }
+}
+
+.mobile-menu-div {
+    animation: menu 0.2s forwards ease-out;
+}
+
+@keyframes menu {
+    0%{
+        top: 0px;
+    }
+
+    50%{
+        top: 40px;
+    }
+
+    100%{
+        top: 64px;
+    }
+}
+
+
+.NavBar {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 0.5px solid rgb(214, 214, 214);
 }
