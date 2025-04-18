@@ -7,6 +7,7 @@
     --blue-dk: #0A006E;
     --blue-md: #1100C0;
     --blue-lt: #1502e6;
+    --blue-sm: #4434fd;
 
     /* font */
     --font1: "Poppins", sans-serif;
@@ -69,7 +70,6 @@ body {
     .box-shadow {
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border: 0.5px solid rgb(214, 214, 214);
-        cursor: pointer;
         border-radius: 10px;
     }
 
@@ -85,8 +85,9 @@ body {
 
 .box-shadow:hover,
 .box-shadow:focus {
-    box-shadow: rgba(8, 28, 252, 0.44) 0px 3px 8px;
-    border: 0.2px solid rgb(149, 132, 255);
+    box-shadow: rgba(7, 2, 255, 0.44) 3px 8px 15px;
+
+    border: 0.2px solid rgb(73, 45, 255);
     scale: 101%;
 }
 
