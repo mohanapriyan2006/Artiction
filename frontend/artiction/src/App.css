@@ -37,3 +37,29 @@
     color: transparent;
 }
 
+
+
+
+.btn-1{
+    border: solid 2px var(--blue-md);
+    height: fit-content;
+    padding: 5px 18px;
+    border-radius: 5px;
+    margin-top: -10px;
+}
+
+.btn-1:hover{
+    background-color: var(--blue-md);
+    color: white;
+}
+
+.btn-2{
+    border: solid 2px var(--blue-md);
+    height: fit-content;
+    padding: 5px 18px;
+    border-radius: 5px;
+    background-color: var(--blue-md);
+    color: white;
+    margin-top: -10px;
+
+}

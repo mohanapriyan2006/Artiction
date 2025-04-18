@@ -63,7 +63,7 @@ const WhyUs = () => {
       
       {/* Testimonials */}
       <div className="title flex flex-col items-center">
-        <b className='font2 font-bold text-[30px]'>Testimonials</b>
+        <b className='font2 font-bold sm:text-[30px] text-[22px]'>Testimonials</b>
         <span className='title-line'>-</span>
       </div>
 
