@@ -104,16 +104,16 @@ const ExploreArt = () => {
       </div>
 
       {/* search section */}
-      <div className="filter-div flex m-10 md:flex-row md:gap-0 gap-10 flex-col">
+      <div className="filter-div place-content-center flex m-10  md:flex-row md:gap-0 gap-10 flex-col">
 
-        <form className='flex-1/2 text-end mr-5 flex'>
+        <form className=' items-end flex'>
           <input 
-          placeholder='Type something for search' className='search-box' type="search" name="search" onChange={(e) => handleSearch(e)} 
+          placeholder='Type something for search . . .' className='search-box sm:w-100 w-60  ' type="search" name="search" onChange={(e) => handleSearch(e)} 
           value={search}
           /> <img className='h-8 w-8 sm:relative sm:ml-0 ml-2 -left-11 -top-1 cursor-pointer' src={searchI} alt="search icon" />
         </form>
 
-        <div className='flex flex-1/2 text-[18px] font-semibold gap-3 text-center justify-center md:text-start md:justify-start'>
+        <div className='flex text-[18px] font-semibold gap-3 text-center justify-center md:text-start md:justify-start'>
 
           <p className='sm:block hidden'><b className='mr-5 '>|</b> Sort by : </p>
           <button
@@ -138,7 +138,7 @@ const ExploreArt = () => {
       {/* Art listing */}
 
       {/* 2x2 Grid */}
-      <div className="flex flex-wrap items-center justify-center gap-5 mb-10">
+      <div className="flex flex-wrap items-center justify-center gap-5 sm:my-15 my-10">
         {currentItems.map((item,id) => (
           <div key={id} className="border p-5 w-100 box-shadow text-center mx-2 ">
             <img className='h-auto w-60 m-auto' src={item.img} alt={item.name} />
