@@ -12,10 +12,17 @@ const App = () => {
   return (
     <div className='App'>
       <NavBar/>
-      {/* <Home/>
-       <Artworks/> */}
-       <Auction/>
-       {/* <Cart/> */}
+      {/*
+      <Home/>
+      <Auction/>
+      <Artworks/> 
+      
+      */}
+
+       <Cart/>
+
+       
+       
       <Footer/>
     </div>
   )

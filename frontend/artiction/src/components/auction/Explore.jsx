@@ -83,18 +83,18 @@ const Explore = () => {
       <p className='text-center text-gray-600 text-[18px] my-5 '>Happening Now
         Grab Your Masterpiece Before the Hammer Falls!</p>
 
-      <div className="live-auctions flex flex-col mx-2 items-center gap-8 my-8">
+      <div className="live-auctions flex flex-col mx-2 items-center sm:gap-8 gap-0 my-8">
         {
           liveAuctions.map((item, id) => (
-            <div key={id} className='flex sm:flex-row flex-col  justify-center items-center box-shadow gap-8 mx-5 py-5  md:w-200 sm:w-160 glowing'>
+            <div key={id} className='flex sm:flex-row flex-col justify-center items-center box-shadow sm:gap-8 gap-0 mx-5 sm:my-0 -my-10 py-5 px-2  md:w-200 sm:w-160 sm:scale-100 scale-80  glowing'>
 
               <img className='h-auto w-50' src={item.img} alt={item.title} />
 
               <div className='text-center'>
 
-                <p className='sm:text-[24px] text-[20px] font-semibold my-3'><span className='blue-md'>{item.title}</span> - {item.artist}</p>
-                <p className='text-gray-600 text-[18px] font-medium'>{item.medium}</p>
-                <p className='text-gray-600 text-[18px] font-medium'>{item.size}</p>
+                <p className='sm:text-[24px] text-[20px] font-semibold my-3'>" <span className='blue-md'>{item.title}</span> "- {item.artist}</p>
+                <p className='text-gray-600 text-[18px] font-medium'>Mediun: {item.medium}</p>
+                <p className='text-gray-600 text-[18px] font-medium'>Size: {item.size}</p>
                 <p className='font-[600] my-2'>Current bid: $<span className='blue-md' >{item.currentBid}</span></p>
 
                 <div className='flex gap-2 items-center justify-center mb-5'>
@@ -104,8 +104,8 @@ const Explore = () => {
                   </div>
                 </div>
 
-                <div className='mt-8 mx-8'>
-                  <input placeholder='$ Enter a amount' className='border-[var(--blue-md)] border-2 rounded sm:mr-5 mr-2 h-8 text-center' type="number" name="amount" />
+                <div className='mt-8 mx-8 flex flex-col sm:flex-row sm:gap-0 gap-4 items-center'>
+                  <input placeholder='$ Enter a amount' className='border-[var(--blue-md)] border-2 rounded sm:mr-5 mr-2 sm:mb-3 mb-0 h-8 text-center' type="number" name="amount" />
                   <button className="btn-2 cursor-pointer">Place a Bid</button>
                 </div>
               </div>
@@ -124,26 +124,24 @@ const Explore = () => {
       <p className='text-center text-gray-600 text-[18px] my-5 '>Take a look at some of the artworks
         that found their forever homes.</p>
 
-      <div className="live-auctions flex flex-col mx-2 items-center gap-8 my-8">
+      <div className="past-auctions flex flex-col mx-2 items-center sm:gap-8 gap-0 my-8">
         {
           endedAuctions.map((item, id) => (
-            <div key={id} className='flex sm:flex-row flex-col justify-center items-center box-shadow gap-8 mx-5 py-5  md:w-200 sm:w-160 '>
+            <div key={id} className='flex sm:flex-row flex-col justify-center items-center box-shadow sm:gap-8 gap-0 mx-5 sm:my-0 -my-10 py-5 px-2  md:w-200 sm:w-160 sm:scale-100 scale-80 '>
 
               <img className='h-auto w-50' src={item.img} alt={item.title} />
 
               <div className='text-center'>
 
-                <p className='sm:text-[24px] text-[20px] font-semibold my-3'><span className='blue-md'>{item.title}</span> - {item.artist}</p>
-                <p className='text-gray-600 text-[18px] font-medium'>{item.medium}</p>
-                <p className='text-gray-600 text-[18px] font-medium'>{item.size}</p>
+                <p className='sm:text-[24px] text-[20px] font-semibold my-3'>" <span className='blue-md'>{item.title}</span> "- {item.artist}</p>
+                <p className='text-gray-600 text-[18px] font-medium'>Mediun: {item.medium}</p>
+                <p className='text-gray-600 text-[18px] font-medium'>Size{item.size}</p>
                 <p className=' text-[20px] font-medium'>Auction Ended : {item.endTime}</p>
-                <p className=" text-[20px] font-medium ">Status : <span className={`${item.sold? 'text-green-800':'text-red-800'}`}>{item.sold ? 'Sold': 'Not Sold'}</span></p>
-                <p className='text-[22px] font-semibold mt-2'>Final bid: $<span className='blue-md' >{item.finalBid}</span></p>
+                <p className=" text-[20px] font-medium ">Status : <span className={`${item.sold ? 'text-green-800' : 'text-red-800'}`}>{item.sold ? 'Sold' : 'Not Sold'}</span></p>
+                <p className='text-[22px] font-semibold mt-2 mb-4'>Final bid: $<span className='blue-md' >{item.finalBid}</span></p>
 
-                <div className='mt-5 mx-8'>
-                  <input placeholder='$ Enter a amount' className='border-[var(--blue-md)] border-2 rounded sm:mr-5 mr-2 h-8 text-center' type="number" name="amount" />
-                  <button className="btn-2 cursor-pointer">Place a Bid</button>
-                </div>
+                <button className="btn-2 cursor-pointer">View Artwork</button>
+
               </div>
             </div>
           ))

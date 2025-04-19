@@ -1,0 +1,21 @@
+
+.btn-q{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px var(--blue-md);
+    height: 40px;
+    font-size: 28px;
+    color: var(--blue-dk);
+    font-weight: bolder;
+    padding: 0px 10px;
+    border-radius: 5px;
+    margin-top: -5px;
+    cursor: pointer;
+}
+
+.btn-q:hover{
+    background-color: var(--blue-md);
+    color: white;
+    scale: 102%;
+}

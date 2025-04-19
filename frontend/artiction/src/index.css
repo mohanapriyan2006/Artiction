@@ -91,6 +91,16 @@ body {
     scale: 101%;
 }
 
+@media screen and (max-width: 639px) {
+    .box-shadow:hover,
+    .box-shadow:focus {
+        box-shadow: rgba(7, 2, 255, 0.44) 3px 8px 15px;
+    
+        border: 0.2px solid rgb(73, 45, 255);
+        scale: 82%;
+    }
+}
+
 @keyframes grow-line {
     0% {
         width: 0px;

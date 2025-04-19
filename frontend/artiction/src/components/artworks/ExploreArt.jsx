@@ -65,7 +65,7 @@ const ExploreArt = () => {
   // search function
 
   const filteredArt = Artworks.filter((art) => (
-    art == '' ? [...Artworks] : (art.name + art.description).toLowerCase().includes(search.toLowerCase())
+    art == '' ? [...art] : (art.name + art.description).toLowerCase().includes(search.toLowerCase())
   )).reverse()
 
   const handleSearch = (e) => {
@@ -135,8 +135,8 @@ const ExploreArt = () => {
 
       {/* 2x2 Grid */}
       <div className="flex flex-wrap items-center justify-center gap-5 mb-10">
-        {currentItems.map((item) => (
-          <div key={item.id} className="border p-5 w-100 box-shadow text-center mx-2 ">
+        {currentItems.map((item,id) => (
+          <div key={id} className="border p-5 w-100 box-shadow text-center mx-2 ">
             <img className='h-auto w-60 m-auto' src={item.img} alt={item.name} />
             <h3 className="text-[20px] font-bold">{item.name}</h3>
             <p className="text-[18px] font-semibold">{item.price}</p>

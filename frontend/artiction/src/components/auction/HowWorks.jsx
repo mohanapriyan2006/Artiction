@@ -19,23 +19,23 @@ const HowWorks = () => {
 
                 <div className='list-none flex flex-col justify-center p-5 gap-4 mx-2 pl-10'>
                     <li className='flex gap-2'>
-                        <img className='h-auto w-10' src={loginI} alt="icon1" />
+                        <img className='h-auto sm:w-10 w-8' src={loginI} alt="icon1" />
                         <p className='text-[20px] font-semibold mt-1'><span className='blue-md'>Register or Log in</span> to participate in auctions.</p>
                     </li>
                     <li  className='flex gap-2'>
-                        <img className='h-auto w-10'  src={handI} alt="icon2" />
+                        <img className=' h-15 sm:w-10 w-8'  src={handI} alt="icon2" />
                         <p className='text-[20px] font-semibold mt-1'><span className='blue-md'>Place your bid</span> — minimum increment applies..</p>
                     </li>
                     <li  className='flex gap-2'>
-                        <img className='h-auto w-10'  src={trackI} alt="icon3" />
+                        <img className='h-auto sm:w-10 w-8'  src={trackI} alt="icon3" />
                         <p className='text-[20px] font-semibold mt-1'><span className='blue-md'>Track the live</span> bidding status in real time.</p>
                     </li>
                     <li  className='flex gap-2'>
-                        <img className='h-auto w-10'  src={winI} alt="icon4" />
+                        <img className='h-auto sm:w-10 w-8'  src={winI} alt="icon4" />
                         <p className='text-[20px] font-semibold mt-1'><span className='blue-md'>Highest bidder wins</span> when the timer ends.</p>
                     </li>
                     <li  className='flex gap-2'>
-                        <img className='h-auto w-10'  src={secureI} alt="icon5" />
+                        <img className='sm:h-10 h-8 sm:w-10 w-8'  src={secureI} alt="icon5" />
                         <p className='text-[20px] font-semibold mt-1'><span className='blue-md'>Secure your artwork</span> through easy online payment and shipping.</p>
                     </li>
                 </div>

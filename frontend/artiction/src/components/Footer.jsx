@@ -6,7 +6,7 @@ import x from '../assets/x_icon.png';
 
 const Footer = () => {
   return (
-    <footer className='text-white px-5 py-8 flex justify-between items-center'>
+    <footer className='text-white px-5 py-8 flex sm:flex-row flex-col sm:gap-0 gap-10 justify-between items-center'>
 
       <div>
         <div className="logo ">
