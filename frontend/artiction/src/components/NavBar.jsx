@@ -13,7 +13,7 @@ const NavBar = ({active,setActive}) => {
     return (
         <div className='NavBar z-50 h-18 bg-white flex justify-between m-auto items-center sticky top-0'>
             <div className="logo w-40 z-50 bg-white">
-                <h1 className='md:ml-10 ml-2 text-[var(--blue-dk)]'>Artiction</h1>
+                <h1 onClick={() => { navigate('/'); setActive('home') }} className='md:ml-10 ml-2 text-[var(--blue-dk)]'>Artiction</h1>
             </div>
 
             {/* desktop nav */}

@@ -82,9 +82,9 @@ const Cart = () => {
                 <p className='text-center text-gray-600 text-[18px] my-5 '>Review your selected artwork(s) before you proceed to checkout. Each piece is one-of-a-kind — make it yours!</p>
             </div>
 
-            {items.length ? <div className="cart-items flex flex-col mx-2 items-center sm:gap-8 gap-0 my-8">
+            {items.length ? <div className="cart-items flex flex-col mx-2 items-center sm:gap-8 gap-30 sm:my-8 my-20">
                 {items.map((item) => (
-                    <div key={item.id} className='flex sm:flex-row flex-col justify-center items-center box-shadow sm:gap-8 gap-0 mx-5 sm:my-0 -my-10 py-5 px-2  md:w-200 sm:w-160 sm:scale-100 scale-80 '>
+                    <div key={item.id} className='flex sm:flex-row flex-col justify-center items-center box-shadow sm:gap-8 gap-0 mx-5 sm:my-0 -my-10 py-5 px-2  md:w-200 sm:w-160  '>
                         <img className='h-auto w-50' src={item.img} alt={item.title} />
                         <div className='text-center'>
                             <p className='sm:text-[24px] text-[20px] font-semibold my-3'>" <span className='blue-md'>{item.title}</span> " - {item.artist}</p>

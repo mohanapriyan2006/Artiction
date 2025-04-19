@@ -87,16 +87,16 @@ const Explore = () => {
       <p className='text-center text-gray-600 text-[18px] my-5 '>Happening Now
         Grab Your Masterpiece Before the Hammer Falls!</p>
 
-      <div className="live-auctions flex flex-col mx-2 items-center sm:gap-8 gap-0 my-8">
+      <div className="live-auctions flex flex-col mx-2 items-center sm:gap-8 gap-30 sm:my-8 my-20">
         {
           liveAuctions.map((item, id) => (
-            <div key={id} className='flex sm:flex-row flex-col justify-center items-center box-shadow sm:gap-8 gap-0 mx-5 sm:my-0 -my-10 py-5 px-2  md:w-200 sm:w-160 sm:scale-100 scale-80  glowing'>
+            <div key={id} className='flex sm:flex-row flex-col justify-center items-center box-shadow sm:gap-8 gap-0 mx-5 sm:my-0 -my-10 py-5 px-2  md:w-200 sm:w-160 w-80  glowing'>
 
               <img className='h-auto w-50' src={item.img} alt={item.title} />
 
               <div className='text-center'>
 
-                <p className='sm:text-[24px] text-[20px] font-semibold my-3'>" <span className='blue-md'>{item.title}</span> "- {item.artist}</p>
+                <p className='sm:text-[24px] text-[18px] font-semibold my-3 '>" <span className='blue-md'>{item.title}</span> "- {item.artist}</p>
                 <p className='text-gray-600 text-[18px] font-medium'>Mediun: {item.medium}</p>
                 <p className='text-gray-600 text-[18px] font-medium'>Size: {item.size}</p>
                 <p className='font-[600] my-2'>Current bid: $<span className='blue-md' >{item.currentBid}</span></p>
@@ -109,7 +109,7 @@ const Explore = () => {
                 </div>
 
                 <div className='mt-8 mx-8 flex flex-col sm:flex-row sm:gap-0 gap-4 items-center'>
-                  <input placeholder='$ Enter a amount' className='border-[var(--blue-md)] border-2 rounded sm:mr-5 mr-2 sm:mb-3 mb-0 h-8 text-center' type="number" name="amount" />
+                  <input placeholder='$ Enter a amount' className='border-[var(--blue-md)] border-2 rounded sm:mr-5 w-50 mr-2 sm:mb-3 mb-0 h-8 text-center' type="number" name="amount" />
                   <button className="btn-2 cursor-pointer">Place a Bid</button>
                 </div>
               </div>
@@ -120,7 +120,7 @@ const Explore = () => {
 
 
       {/* Past Auctions – Recently Closed */}
-      <div className="title flex flex-col items-center mt-10">
+      <div className="title flex flex-col items-center mt-30">
         <b className='font2 font-bold sm:text-[30px] text-[22px]'>Past Auctions – Recently Closed</b>
         <span className='title-line'>-</span>
       </div>
@@ -128,10 +128,10 @@ const Explore = () => {
       <p className='text-center text-gray-600 text-[18px] my-5 '>Take a look at some of the artworks
         that found their forever homes.</p>
 
-      <div className="past-auctions flex flex-col mx-2 items-center sm:gap-8 gap-0 my-8">
+      <div className="past-auctions flex flex-col mx-2 items-center  sm:gap-8 gap-30 sm:my-8 my-20">
         {
           endedAuctions.map((item, id) => (
-            <div key={id} className='flex sm:flex-row flex-col justify-center items-center box-shadow sm:gap-8 gap-0 mx-5 sm:my-0 -my-10 py-5 px-2  md:w-200 sm:w-160 sm:scale-100 scale-80 '>
+            <div key={id} className='flex sm:flex-row flex-col justify-center items-center box-shadow sm:gap-8 gap-0 mx-5 sm:my-0 -my-10 py-5 px-2  md:w-200 sm:w-160 '>
 
               <img className='h-auto w-50' src={item.img} alt={item.title} />
 

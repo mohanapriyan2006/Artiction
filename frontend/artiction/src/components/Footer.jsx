@@ -8,19 +8,19 @@ const Footer = () => {
   return (
     <footer className='text-white px-5 py-8 flex sm:flex-row flex-col sm:gap-0 gap-10 justify-between items-center'>
 
-      <div>
+      <div className='flex flex-col sm:text-start text-center'>
         <div className="logo ">
           <h1>Artiction</h1>
         </div>
-        <p>Designed & Developed By</p>
+        <span>Designed & Developed By</span>
         <b className='cursor-pointer hover:text-[16.5px]'>MOHANAPRIYAN M</b>
         <p className='sm:hidden block text-sm text-gray-200'> &copy; 2025</p>
 
       </div>
 
       <div className='sm:flex hidden text-center flex-col justify-between gap-5'>
-        <p className='font2 text-[20px]'>Where Art Finds Its True Value.</p>
-        <p className='text-sm text-gray-200'> &copy; 2025</p>
+        <b className='font2 text-[20px] text-white'>Where Art Finds Its True Value.</b>
+        <span className='text-sm text-gray-200'> &copy; 2025</span>
       </div>
 
       <div className='flex items-center gap-3'>

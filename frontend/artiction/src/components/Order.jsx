@@ -49,9 +49,9 @@ const Order = () => {
             <div className="order-content sm:border md:mx-10 mx-6 rounded my-10 ">
 
                 {/* order items */}
-                <div className="order-items flex flex-col mx-2 items-center gap-8 my-8">
+                <div className="order-items flex flex-col mx-2 items-center sm:gap-8 gap-30 sm:my-8 my-20">
                     {orderItems.map((item) => (
-                        <div key={item.id} className='flex sm:flex-row flex-col justify-center items-center box-shadow sm:gap-8 gap-0 mx-5 sm:my-0 -my-10 py-5 px-2  md:w-200 sm:w-140 w-100 sm:scale-100 scale-80 '>
+                        <div key={item.id} className='flex sm:flex-row flex-col justify-center items-center box-shadow sm:gap-8 gap-0 mx-5 sm:my-0 -my-10 py-5 px-2  md:w-200 sm:w-140 w-80'>
                             <img className='h-auto w-25 rounded-full border-3 border-[var(--blue-md)]' src={item.img} alt={item.title} />
                             <div className='text-center'>
                                 <p className='sm:text-[24px] text-[20px] font-semibold my-3'> <span className='blue-md'>{item.title}</span> " - {item.artist}</p>
@@ -108,11 +108,11 @@ const Order = () => {
                         </div>
                         <div className="flex flex-col div9">
                             <label className='label-o'>Payment Method :</label>
-                            <select className='select-o' required>
-                                <option value="cashOnDelivery">Cash On Delivery</option>
-                                <option value="upi">UPI / QR Code</option>
-                                <option value="netbanking">Net Banking</option>
-                                <option value="card">Credit/Debit Card</option>
+                            <select className='select-o cursor-pointer' required>
+                                <option  value="cashOnDelivery">Cash On Delivery</option>
+                                <option  value="upi">UPI / QR Code</option>
+                                <option  value="netbanking">Net Banking</option>
+                                <option  value="card">Credit/Debit Card</option>
                             </select>
                         </div>
                     </div>

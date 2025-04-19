@@ -7,6 +7,7 @@ import art4 from "../../assets/art4.jpg";
 import art5 from "../../assets/art5.jpg";
 import art6 from "../../assets/art6.jpg";
 import art7 from "../../assets/art7.jpg";
+import searchI from "../../assets/search.png";
 import { useNavigate } from 'react-router';
 
 
@@ -98,23 +99,23 @@ const ExploreArt = () => {
       </div>
 
       <div className="title flex flex-col items-center">
-        <b className='font2 font-bold text-[30px]'>A Collection of Masterpieces</b>
+        <b className='font2 font-bold sm:text-[30px] text-[22px]'>A Collection of Masterpieces</b>
         <span className='title-line'>-</span>
       </div>
 
       {/* search section */}
       <div className="filter-div flex m-10 md:flex-row md:gap-0 gap-10 flex-col">
 
-        <form className='flex-1/2 text-end mr-5'>
+        <form className='flex-1/2 text-end mr-5 flex'>
           <input 
           placeholder='Type something for search' className='search-box' type="search" name="search" onChange={(e) => handleSearch(e)} 
           value={search}
-          />
+          /> <img className='h-8 w-8 sm:relative sm:ml-0 ml-2 -left-11 -top-1 cursor-pointer' src={searchI} alt="search icon" />
         </form>
 
         <div className='flex flex-1/2 text-[18px] font-semibold gap-3 text-center justify-center md:text-start md:justify-start'>
 
-          <p><b className='mr-5 '>|</b> Sort by : </p>
+          <p className='sm:block hidden'><b className='mr-5 '>|</b> Sort by : </p>
           <button
             className={`${sortBy == 'title' ? 'btn-2' : 'btn-1'} cursor-pointer`}
             onClick={() => setSortBy('title')}
