@@ -10,7 +10,7 @@ const Login = () => {
         </div>
 
         <div className='border-2 rounded-[10px] border-[var(--blue-sm)] shadow-lg glowing py-8 px-6 sm:px-10 text-center bg-white w-full'>
-          <h3 className='text-2xl font-semibold text-[var(--blue-md)] mb-6'>Login</h3>
+          <h3 className='text-2xl font-semibold text-[var(--blue-md)] mb-6'>Sign in</h3>
           <form className='flex flex-col gap-6 w-full'>
             <input 
               className='border-dashed border-2 rounded p-3 w-full focus:outline-none focus:border-[var(--blue-md)] text-center' 
@@ -28,7 +28,7 @@ const Login = () => {
             />
             <button 
               type="submit" 
-              className='bg-[var(--blue-dk)] text-white py-3 px-6 rounded hover:bg-[var(--blue-md)] transition-colors w-full cursor-pointer font-semibold'
+              className='bg-[var(--blue-dk)] text-[20px] text-white py-3 px-6 rounded hover:bg-[var(--blue-md)] transition-colors w-full cursor-pointer font-semibold'
             >
               Login
             </button>
