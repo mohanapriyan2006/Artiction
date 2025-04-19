@@ -6,24 +6,24 @@ import Footer from './components/Footer';
 import Artworks from './components/Artworks';
 import Auction from './components/Auction';
 import Cart from './components/Cart';
+import Login from './components/Login';
 
 
 const App = () => {
   return (
     <div className='App'>
-      <NavBar/>
+      {/* <NavBar/> */}
       {/*
       <Home/>
       <Auction/>
       <Artworks/> 
-      
+      <Cart/>
       */}
 
-       <Cart/>
-
+  <Login/>
        
        
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

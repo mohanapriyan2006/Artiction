@@ -136,7 +136,7 @@ const Cart = () => {
 
                 <div className='flex flex-col justify-center items-center gap-5 md:scale-100 scale-80'>
 
-                    <div className='border-dashed border-2 rounded border-[var(--blue-md)] flex flex-col  w-120 p-10 gap-3 text-[22px] font-semibold'>
+                    <div className='border-dashed border-2 rounded border-[var(--blue-md)] flex flex-col  md:w-120 sm:p-10 p-5 gap-3 text-[22px] font-semibold'>
 
                         <p className='flex  '>
                             <span className='flex-1/2'>Subtotal</span>
