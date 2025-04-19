@@ -7,6 +7,7 @@ import art4 from "../../assets/art4.jpg";
 import art5 from "../../assets/art5.jpg";
 import art6 from "../../assets/art6.jpg";
 import art7 from "../../assets/art7.jpg";
+import { useNavigate } from 'react-router';
 
 
 const Artworks = [
@@ -58,6 +59,8 @@ const Artworks = [
 
 const ExploreArt = () => {
 
+  const navigate = useNavigate();
+
   const [desc, setDesc] = useState(false);
   const [sortBy, setSortBy] = useState(' ');
   const [search, setSearch] = useState('');
@@ -86,7 +89,7 @@ const ExploreArt = () => {
 
 
   return (
-    <div className='explore-art mt-20'>
+    <div id='exploreArt' className='explore-art mt-20'>
 
       <div className="divider mb-10">
         <span>-</span>
@@ -142,10 +145,10 @@ const ExploreArt = () => {
             <p className="text-[18px] font-semibold">{item.price}</p>
             <p>{item.description}</p>
             <div className='mt-5 flex items-center justify-center gap-3'>
-              <button className="btn-2">
+              <button onClick={() => navigate('/cart')} className="btn-2 cursor-pointer">
                 Add to Cart
               </button>
-              <button className="btn-1">
+              <button onClick={() => navigate('/order')} className="btn-1 cursor-pointer">
                 Buy now
               </button>
             </div>

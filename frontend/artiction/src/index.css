@@ -26,6 +26,10 @@ body {
     transition: all ease-in-out;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 
 @layer utilities {
     .font2 {

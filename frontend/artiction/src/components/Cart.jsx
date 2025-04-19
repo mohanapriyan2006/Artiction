@@ -6,6 +6,7 @@ import trash from '../assets/trash.png';
 import order from '../assets/order.png';
 import payment from '../assets/payment.png';
 import '../styles/Cart.css';
+import { useNavigate } from 'react-router';
 
 const cartArtworks = [
     {
@@ -44,6 +45,9 @@ const cartArtworks = [
 ];
 
 const Cart = () => {
+
+    const navigate = useNavigate();
+
     const [items, setItems] = useState(
         cartArtworks.map(item => (
             {
@@ -151,14 +155,14 @@ const Cart = () => {
                             <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ 100</span></b>
                         </p>
 
-                        <p className='flex text-[28px]'>
+                        <p className='flex sm:text-[28px] text-[24px]'>
                             Total Payable
                             <b> : <span className='font-bold blue-md'>$ 1000</span></b>
                         </p>
 
                     </div>
 
-                    <button className="btn-2 flex text-[22px] font-semibold gap-2 w-55  text-center cursor-pointer">
+                    <button onClick={() => navigate('/order')} className="btn-2 flex text-[22px] font-semibold gap-2 w-55  text-center cursor-pointer">
                         <img src={order} alt="order icon" />
                         Checkout</button>
 

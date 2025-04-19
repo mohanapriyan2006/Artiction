@@ -1,7 +1,11 @@
 import React from 'react';
 import subImg from '../../assets/subscribe.jpg';
+import { useNavigate } from 'react-router';
 
 const Community = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className='home-community mb-10'>
       <div className="divider">
@@ -10,7 +14,7 @@ const Community = () => {
         <span>-</span>
       </div>
 
-      {/* Be Part of the Art Revolution! */}
+      {/* be a part */}
       <div className="title flex flex-col items-center mt-5">
         <b className='font2 font-bold sm:text-[30px] text-[22px]  text-center'>Be Part of the Art Revolution!</b>
         <span className='title-line'>-</span>
@@ -18,23 +22,25 @@ const Community = () => {
 
       <div className="Art-User flex sm:flex-row flex-col justify-around mx-10 mt-10 items-center">
 
+        {/* user */}
         <div className="text-center md:p-10  p-3">
           <h3 className='text-[24px] font-semibold'>For Collectors & Enthusiasts</h3>
           <p className='text-[20px] text-gray-600 mt-4'>Sign up today to explore exclusive masterpieces, participate in live auctions, and own breathtaking artworks from world-renowned and emerging artists.</p>
-          <button className='oval-btn mt-5' role='button' type="button"><span>Join</span></button>
+          <button onClick={() => navigate('/login')}  className='oval-btn mt-5' role='button' type="button"><span>Join</span></button>
         </div>
 
         <span className='cross-divider'>-</span>
 
+        {/* artist */}
         <div className="text-center  md:p-10  p-3">
           <h3 className='text-[24px] font-semibold'> For Artists</h3>
           <p className='text-[20px] text-gray-600 mt-4'>Showcase your talent to a global audience, auction your artwork, and connect with passionate collectors who appreciate your creativity.</p>
-          <button className='oval-btn mt-5' role='button' type="button"><span>Join</span></button>
+          <button onClick={() => navigate('/login')} className='oval-btn mt-5' role='button' type="button"><span>Join</span></button>
         </div>
 
       </div>
 
-      {/* Stay Connected with the World of Art */}
+      {/* subscribe */}
       <div className="title flex flex-col items-center mt-10">
         <b className='font2 font-bold sm:text-[30px] text-[22px] text-center'>Stay Connected with the World of Art</b>
         <span className='title-line'>-</span>
@@ -48,12 +54,12 @@ const Community = () => {
           <form className='subscribe-form flex md:flex-row flex-col items-center gap-4 justify-center'>
             <label htmlFor="email" className='absolute -left-99999'>Enter email</label>
             <input className=' sm:w-[220px] w-[180px]' placeholder='Enter email' type="email" name="email" required />
-            <button  type='submit'>Subscribe</button>
+            <button type='submit'>Subscribe</button>
           </form>
         </div>
 
         <div>
-          <img className='h-auto md:w-150 w-80 m-auto' src={subImg} alt="img"  />
+          <img className='h-auto md:w-150 w-80 m-auto' src={subImg} alt="img" />
         </div>
 
       </div>

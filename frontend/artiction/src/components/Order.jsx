@@ -4,6 +4,7 @@ import art4 from '../assets/art4.jpg';
 import trash from '../assets/trash.png';
 import order from '../assets/order.png';
 import '../styles/Order.css'
+import { useNavigate } from 'react-router';
 
 
 
@@ -35,6 +36,9 @@ const orderItems = [
 ];
 
 const Order = () => {
+
+    const navigate = useNavigate();
+
     return (
         <div className='order-page'>
             <div className="title flex flex-col items-center my-5">
@@ -128,7 +132,7 @@ const Order = () => {
                             <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ 100</span></b>
                         </p>
 
-                        <p className='flex text-[28px]'>
+                        <p className='flex sm:text-[28px] text-[24px]'>
                             Total Payable
                             <b> : <span className='font-bold blue-md'>$ 1000</span></b>
                         </p>
@@ -136,7 +140,7 @@ const Order = () => {
                     </div>
 
                     <div className="order-btns flex sm:flex-row flex-col sm:items-start items-center sm:gap-0 gap-8 justify-around w-full mt-10 mb-4">
-                        <button className="btn-1 cursor-pointer text-[22px] font-semibold w-50">Cancel</button>
+                        <button onClick={() => navigate('/artworks')} type='button' className="btn-1 cursor-pointer text-[22px] font-semibold w-50">Cancel</button>
                         <button type='submit' className="btn-2 flex text-[22px] font-semibold gap-2 w-55 text-center cursor-pointer">
                             <img src={order} alt="order icon" />
                             Place Order</button>

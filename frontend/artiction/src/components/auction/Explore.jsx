@@ -4,6 +4,7 @@ import art2 from '../../assets/art2.jpg';
 import art3 from '../../assets/art3.jpg';
 import art4 from '../../assets/art4.jpg';
 import art5 from '../../assets/art5.jpg';
+import { useNavigate } from 'react-router';
 
 const liveAuctions = [
   {
@@ -66,8 +67,11 @@ const endedAuctions = [
 ];
 
 const Explore = () => {
+  
+  const navigate = useNavigate();
+
   return (
-    <div className='auction-explore mb-10'>
+    <div id='exploreAuction' className='auction-explore mb-10'>
       <div className="divider">
         <span>-</span>
         <b className='font2 font-bold text-[28px] sm:text-[32px] -mt-5'>Explore Auctions</b>
@@ -140,7 +144,7 @@ const Explore = () => {
                 <p className=" text-[20px] font-medium ">Status : <span className={`${item.sold ? 'text-green-800' : 'text-red-800'}`}>{item.sold ? 'Sold' : 'Not Sold'}</span></p>
                 <p className='text-[22px] font-semibold mt-2 mb-4'>Final bid: $<span className='blue-md' >{item.finalBid}</span></p>
 
-                <button className="btn-2 cursor-pointer">View Artwork</button>
+                <button onClick={() => navigate('/artworks')} className="btn-2 cursor-pointer">View Artwork</button>
 
               </div>
             </div>
