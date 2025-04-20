@@ -2,14 +2,14 @@
     "version": 2,
     "routes": [
         {
-            "src": "/artiction/assets/(.*)",
+            "src": "/assets/.*",
             "headers": {
                 "Content-Type": "application/javascript"
             }
         },
         {
-            "src": "/artiction/.*",
-            "dest": "/artiction/dist/index.html"
+            "src": "/(.*)",
+            "dest": "/index.html"
         }
     ]
 }
