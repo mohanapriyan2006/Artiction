@@ -4,15 +4,17 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './', // Changed from '/' to './' for correct relative paths
+  base: '/',
   build: {
-    outDir: '../dist', // Explicit output directory
+    outDir: path.resolve(__dirname, '../../dist'), // Absolute path
     emptyOutDir: true,
     rollupOptions: {
-      output: {
-        entryFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]'
-      }
+      input: path.resolve(__dirname, 'index.html') // Explicit entry
+    }
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src')
     }
   },
   plugins: [
