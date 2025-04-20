@@ -2,10 +2,10 @@
     "version": 2,
     "builds": [
         {
-            "src": "frontend/artiction/vite.config.js",
+            "src": "frontend/artiction/package.json",
             "use": "@vercel/static-build",
             "config": {
-                "distDir": "dist"
+                "distDir": "../dist"
             }
         }
     ],
