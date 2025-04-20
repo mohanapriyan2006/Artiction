@@ -4,15 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/', // For root domain deployment
+  base: '/', 
   build: {
-    outDir: '../dist', // Builds directly into frontend/dist
-    emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        main: './index.html' // Explicit entry point
-      }
-    }
+    outDir: 'dist',
   },
   plugins: [
     react(),
