@@ -1,4 +1,4 @@
-import React, { act, useState } from 'react'
+import React from 'react'
 import Home from './components/Home';
 import NavBar from './components/NavBar';
 import './App.css'
@@ -11,6 +11,7 @@ import Order from './components/Order';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Missing from './components/Missing';
 import { DataProvider } from './hooks/DataContext';
+import ScrollToTop from './hooks/ScrollToTop';
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
 
   return (
     <Router>
+      <ScrollToTop/>
       <DataProvider>
         <div className='App'>
 

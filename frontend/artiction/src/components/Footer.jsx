@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/Footer.css';
 import fb from '../assets/fb_icon.png';
 import ig from '../assets/ig_icon.png';
 import x from '../assets/x_icon.png';
+import { DataContext } from '../hooks/DataContext';
 
 const Footer = () => {
+
+  const {navigate,setActive} = useContext(DataContext);
+
   return (
     <footer className='text-white px-5 py-8 flex sm:flex-row flex-col sm:gap-0 gap-10 justify-between items-center'>
 
       <div className='flex flex-col sm:text-start text-center'>
-        <div className="logo ">
+        <div onClick={() => { navigate('/'); setActive('home')}} className="logo ">
           <h1>Artiction</h1>
         </div>
         <span>Designed & Developed By</span>
-        <b className='cursor-pointer hover:text-[16.5px]'>MOHANAPRIYAN M</b>
+        <a href='https://mohanapriyan.netlify.app/' target='new' className='cursor-pointer hover:text-[16.5px] font-semibold'>MOHANAPRIYAN M</a>
         <p className='sm:hidden block text-sm text-gray-200'> &copy; 2025</p>
 
       </div>

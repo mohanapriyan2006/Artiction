@@ -5,7 +5,7 @@ import art3 from '../../assets/art3.jpg';
 import art4 from '../../assets/art4.jpg';
 import art5 from '../../assets/art5.jpg';
 import { DataContext } from '../../hooks/DataContext';
-import Swal from 'sweetalert2'
+import RemainingTime from '../../hooks/RemainingTime';
 
 
 const liveAuctions = [
@@ -16,7 +16,7 @@ const liveAuctions = [
     medium: "Oil on Canvas",
     size: "36 x 24 inches",
     currentBid: 5000,
-    timeLeft: "01:12:48",
+    timeLeft: "2025-12-01",
     img: art1,
   },
   {
@@ -26,7 +26,7 @@ const liveAuctions = [
     medium: "Acrylic on Wood",
     size: "24 x 18 inches",
     currentBid: 3200,
-    timeLeft: "02:45:15",
+    timeLeft: "2025-8-01",
     img: art2,
   }
 ];
@@ -70,9 +70,7 @@ const endedAuctions = [
 
 const Explore = () => {
 
-  const { navigate, setActive , Toast} = useContext(DataContext);
-
-  
+  const { navigate, setActive, Toast } = useContext(DataContext);
 
   const handlePlaceBid = (e) => {
     e.preventDefault();
@@ -117,9 +115,7 @@ const Explore = () => {
 
                 <div className='flex gap-2 items-center justify-center mb-5'>
                   <p>Time left: </p>
-                  <div className='bg-[var(--blue-sm)] text-white py-3 px-8 rounded'>
-                    {item.timeLeft}
-                  </div>
+                 <RemainingTime timeFrom={item.timeLeft}/>
                 </div>
 
                 <form onSubmit={(e) => handlePlaceBid(e)}>
