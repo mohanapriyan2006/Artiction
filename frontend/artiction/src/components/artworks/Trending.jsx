@@ -12,46 +12,46 @@ import art5 from '../../assets/art5.jpg';
 import art6 from '../../assets/art6.jpg';
 import art7 from '../../assets/art7.jpg';
 
+const trendingArt = [
+    {
+        img: art1,
+        name: "Sunset Overdrive",
+        price: "$1200"
+    },
+    {
+        img: art2,
+        name: "Whispers of the Forest", price: "$850 "
+
+    },
+    {
+        img: art3,
+        name: "Urban Mirage", price: "$640"
+
+    },
+    {
+        img: art4,
+        name: "Golden Horizon", price: "$1500"
+
+    },
+    {
+        img: art5,
+        name: "Fragments of Time", price: "$720"
+
+    },
+    {
+        img: art6,
+        name: "Silent Reflections", price: "$980"
+    }
+    ,
+    {
+        img: art7,
+        name: "Midnight Bloom", price: "$1100"
+
+    }
+];
 
 const Trending = () => {
-
-    const trendingArt = [
-        {
-            img: art1,
-            name: "Sunset Overdrive",
-            price: "$1200"
-        },
-        {
-            img: art2,
-            name: "Whispers of the Forest", price: "$850 "
-
-        },
-        {
-            img: art3,
-            name: "Urban Mirage", price: "$640"
-
-        },
-        {
-            img: art4,
-            name: "Golden Horizon", price: "$1500"
-
-        },
-        {
-            img: art5,
-            name: "Fragments of Time", price: "$720"
-
-        },
-        {
-            img: art6,
-            name: "Silent Reflections", price: "$980"
-        }
-        ,
-        {
-            img: art7,
-            name: "Midnight Bloom", price: "$1100"
-
-        }
-    ];
+    
 
     return (
         <div className='trending-artworks mt-30'>

@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import art3 from '../assets/art3.jpg';
 import art4 from '../assets/art4.jpg';
-import trash from '../assets/trash.png';
 import order from '../assets/order.png';
 import '../styles/Order.css'
-import { useNavigate } from 'react-router';
+import { DataContext } from '../hooks/DataContext';
 
 
 
@@ -37,7 +36,7 @@ const orderItems = [
 
 const Order = () => {
 
-    const navigate = useNavigate();
+    const {navigate,setActive} = useContext(DataContext);
 
     return (
         <div className='order-page'>
@@ -140,7 +139,7 @@ const Order = () => {
                     </div>
 
                     <div className="order-btns flex sm:flex-row flex-col sm:items-start items-center sm:gap-0 gap-8 justify-around w-full mt-10 mb-4">
-                        <button onClick={() => navigate('/artworks')} type='button' className="btn-1 cursor-pointer text-[22px] font-semibold w-50">Cancel</button>
+                        <button onClick={() =>{ navigate('/artworks'); setActive('artworks')}} type='button' className="btn-1 cursor-pointer text-[22px] font-semibold w-50">Cancel</button>
                         <button type='submit' className="btn-2 flex text-[22px] font-semibold gap-2 w-55 text-center cursor-pointer">
                             <img src={order} alt="order icon" />
                             Place Order</button>

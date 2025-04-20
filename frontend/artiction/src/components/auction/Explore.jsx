@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import art1 from '../../assets/art1.jpg';
 import art2 from '../../assets/art2.jpg';
 import art3 from '../../assets/art3.jpg';
 import art4 from '../../assets/art4.jpg';
 import art5 from '../../assets/art5.jpg';
-import { useNavigate } from 'react-router';
+import { DataContext } from '../../hooks/DataContext';
+
 
 const liveAuctions = [
   {
@@ -68,7 +69,7 @@ const endedAuctions = [
 
 const Explore = () => {
   
-  const navigate = useNavigate();
+  const {navigate,setActive} = useContext(DataContext);
 
   return (
     <div id='exploreAuction' className='auction-explore mb-10'>
@@ -144,7 +145,7 @@ const Explore = () => {
                 <p className=" text-[20px] font-medium ">Status : <span className={`${item.sold ? 'text-green-800' : 'text-red-800'}`}>{item.sold ? 'Sold' : 'Not Sold'}</span></p>
                 <p className='text-[22px] font-semibold mt-2 mb-4'>Final bid: $<span className='blue-md' >{item.finalBid}</span></p>
 
-                <button onClick={() => navigate('/artworks')} className="btn-2 cursor-pointer">View Artwork</button>
+                <button onClick={() => {navigate('/artworks'); setActive('artworks')}} className="btn-2 cursor-pointer">View Artwork</button>
 
               </div>
             </div>

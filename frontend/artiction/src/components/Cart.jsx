@@ -1,78 +1,16 @@
-import React, { useState } from 'react';
-import art3 from '../assets/art3.jpg';
-import art4 from '../assets/art4.jpg';
-import art5 from '../assets/art5.jpg';
+import React, { useContext, useState } from 'react';
 import trash from '../assets/trash.png';
 import order from '../assets/order.png';
 import payment from '../assets/payment.png';
 import '../styles/Cart.css';
-import { useNavigate } from 'react-router';
+import { DataContext } from '../hooks/DataContext';
 
-const cartArtworks = [
-    {
-        id: "101",
-        img: art3,
-        title: "Starry Solitude",
-        artist: "Elena Petrova",
-        medium: "Watercolor on Paper",
-        size: "20 x 16 inches",
-        price: 3800,
-        sold: true,
-        endTime: "2023-04-15 14:30:00",
-    },
-    {
-        id: "102",
-        img: art4,
-        title: "Rustic Memories",
-        artist: "Carlos Mendez",
-        medium: "Charcoal on Canvas",
-        size: "30 x 22 inches",
-        price: 1500,
-        sold: false,
-        endTime: "2023-04-10 09:15:00",
-    },
-    {
-        id: "103",
-        img: art5,
-        title: "Azure Depths",
-        artist: "Nina Yamamoto",
-        medium: "Oil on Canvas",
-        size: "40 x 30 inches",
-        price: 9200,
-        sold: true,
-        endTime: "2023-04-18 21:00:00",
-    }
-];
 
 const Cart = () => {
 
-    const navigate = useNavigate();
+    const {navigate,setActive,items,handleRemove,updateQuantity} = useContext(DataContext);
 
-    const [items, setItems] = useState(
-        cartArtworks.map(item => (
-            {
-                ...item,
-                quantity: 1
-            }
-        ))
-    )
-
-    const handleRemove = (id) => {
-        setItems(prevItems => prevItems.filter(
-            item => item.id !== id
-        ))
-    };
-
-    const updateQuantity = (id, newQuantity) => {
-        if (newQuantity < 1) return
-        setItems(prevItems => prevItems.map(
-            item => (
-                item.id === id ? { ...item, quantity: newQuantity } : item
-            )
-        ))
-    };
-
-
+   
     return (
         <div className='mt-15'>
             {/* Your Art Cart */}
@@ -162,7 +100,7 @@ const Cart = () => {
 
                     </div>
 
-                    <button onClick={() => navigate('/order')} className="btn-2 flex text-[22px] font-semibold gap-2 w-55  text-center cursor-pointer">
+                    <button onClick={() => {navigate('/order'); setActive('order')}} className="btn-2 flex text-[22px] font-semibold gap-2 w-55  text-center cursor-pointer">
                         <img src={order} alt="order icon" />
                         Checkout</button>
 

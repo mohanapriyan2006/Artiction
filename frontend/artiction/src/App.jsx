@@ -10,17 +10,16 @@ import Login from './components/Login';
 import Order from './components/Order';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Missing from './components/Missing';
+import { DataProvider } from './hooks/DataContext';
 
 
 const App = () => {
-
-  const [active, setActive] = useState("home");
 
 
   const Layout = ({ children }) => {
     return (
       <>
-        <NavBar active={active} setActive={setActive} />
+        <NavBar />
         {children}
         <Footer />
       </>
@@ -28,27 +27,25 @@ const App = () => {
   };
 
   return (
-    <div className='App'>
+    <Router>
+      <DataProvider>
+        <div className='App'>
 
-      <Router>
+          <Routes>
 
-        <Routes>
+            <Route path="/" element={<Layout><Home /></Layout>} />
+            <Route path="/artworks" element={<Layout><Artworks /></Layout>} />
+            <Route path="/auction" element={<Layout><Auction /></Layout>} />
+            <Route path="/cart" element={<Layout><Cart /></Layout>} />
+            <Route path="/order" element={<Layout><Order /></Layout>} />
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<Missing />} />
 
-          <Route path="/" element={<Layout><Home /></Layout>} />
-          <Route path="/artworks" element={<Layout><Artworks /></Layout>} />
-          <Route path="/auction" element={<Layout><Auction /></Layout>} />
-          <Route path="/cart" element={<Layout><Cart /></Layout>} />
-          <Route path="/order" element={<Layout><Order /></Layout>} />
-          <Route path="/login" element={<Login />} />
-          <Route path="*" element={<Missing />} />
+          </Routes>
 
-        </Routes>
-
-
-      </Router>
-
-
-    </div>
+        </div>
+      </DataProvider>
+    </Router>
   )
 }
 

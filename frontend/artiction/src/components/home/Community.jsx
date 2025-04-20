@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import subImg from '../../assets/subscribe.jpg';
-import { useNavigate } from 'react-router';
+import { DataContext } from '../../hooks/DataContext';
 
 const Community = () => {
 
-  const navigate = useNavigate();
+  const {navigate} = useContext(DataContext);
 
   return (
     <div className='home-community mb-10'>

@@ -1,8 +1,9 @@
-import React from 'react';
-import { useNavigate } from 'react-router';
+import React, { useContext } from 'react';
+import { DataContext } from '../hooks/DataContext';
 
 const Login = () => {
-  const navigate = useNavigate();
+
+  const {navigate,setActive,setIsLogined} = useContext(DataContext);
 
   return (
     
@@ -14,13 +15,14 @@ const Login = () => {
 
         <div className='border-2 rounded-[10px] border-[var(--blue-sm)] shadow-lg glowing py-8 px-6 sm:px-10 text-center bg-white w-full'>
           <h3 className='text-2xl font-semibold text-[var(--blue-md)] mb-6'>Sign in</h3>
-          <form className='flex flex-col gap-6 w-full' onSubmit={() => navigate('/')}>
+          <form className='flex flex-col gap-6 w-full' onSubmit={(e) =>{ e.preventDefault(); navigate('/'); setActive("home"); setIsLogined(true) }}>
             <input 
               className='border-dashed border-2 rounded p-3 w-full focus:outline-none focus:border-[var(--blue-md)] text-center' 
               placeholder='Enter username' 
               type="text" 
               name='username' 
               required
+             autoFocus
             />
             <input 
               className='border-dashed border-2 rounded p-3 w-full focus:outline-none focus:border-[var(--blue-md)] text-center' 
