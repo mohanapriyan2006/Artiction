@@ -4,6 +4,7 @@ import art4 from '../assets/art4.jpg';
 import order from '../assets/order.png';
 import '../styles/Order.css'
 import { DataContext } from '../hooks/DataContext';
+import Swal from 'sweetalert2';
 
 
 
@@ -38,6 +39,17 @@ const Order = () => {
 
     const {navigate,setActive} = useContext(DataContext);
 
+    const handleOrderSubmit = (e) => {
+        e.preventDefault();
+
+        Swal.fire({
+            icon: 'success',
+            timer: 4000,
+            title: 'Order Comfirmation',
+            text: '📦 Your Order Successfully Placed ✔️'
+        })
+    }
+
     return (
         <div className='order-page'>
             <div className="title flex flex-col items-center my-5">
@@ -66,7 +78,7 @@ const Order = () => {
                 </div>
 
                 {/* order details */}
-                <form className=' place-content-center place-items-center'>
+                <form onSubmit={(e) => handleOrderSubmit(e)} className=' place-content-center place-items-center'>
 
                     <h4 className='text-2xl font-semibold my-5'>Order Details</h4>
 

@@ -102,10 +102,10 @@ const ExploreArt = () => {
           pageCount={pageCount}
           onPageChange={handlePageClick}
           containerClassName={"flex space-x-2"}
-          pageClassName={"px-3 py-1 border rounded-full "}
+          pageClassName={"px-3 py-1 border  rounded-full "}
           activeClassName={"bg-[var(--blue-md)] text-white"}
           previousClassName={"px-3 py-1 border-2 border-[var(--blue-md)] rounded blue-md font-semibold page-btn cursor-pointer"}
-          nextClassName={"px-3 py-1 border-2 border-[var(--blue-md)] rounded blue-md font-semibold page-btn cursor-pointer"}
+          nextClassName={"px-3 py-1  border-2 border-[var(--blue-md)] rounded blue-md font-semibold page-btn cursor-pointer"}
         />
       </div>
 

@@ -8,6 +8,7 @@ import art4 from "../assets/art4.jpg";
 import art5 from "../assets/art5.jpg";
 import art6 from "../assets/art6.jpg";
 import art7 from "../assets/art7.jpg";
+import Swal from 'sweetalert2';
 
 
 // artworks for explore
@@ -167,6 +168,21 @@ export const DataProvider = ({ children }) => {
     ))
   };
 
+  // -----------------------
+
+  // Sweat alert
+  
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
 
   return (
     <DataContext.Provider
@@ -181,7 +197,8 @@ export const DataProvider = ({ children }) => {
           sortBy, setSortBy,
           search, handleSearch,
           currentItems, pageCount, handlePageClick,
-          items, handleRemove, updateQuantity
+          items, handleRemove, updateQuantity,
+          Toast
         }
       }
     >

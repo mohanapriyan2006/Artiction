@@ -5,6 +5,7 @@ import art3 from '../../assets/art3.jpg';
 import art4 from '../../assets/art4.jpg';
 import art5 from '../../assets/art5.jpg';
 import { DataContext } from '../../hooks/DataContext';
+import Swal from 'sweetalert2'
 
 
 const liveAuctions = [
@@ -68,8 +69,20 @@ const endedAuctions = [
 ];
 
 const Explore = () => {
+
+  const { navigate, setActive , Toast} = useContext(DataContext);
+
   
-  const {navigate,setActive} = useContext(DataContext);
+
+  const handlePlaceBid = (e) => {
+    e.preventDefault();
+
+    Toast.fire({
+      icon: "success",
+      title: "💰 Bid Placed successfully"
+    });
+
+  }
 
   return (
     <div id='exploreAuction' className='auction-explore mb-10'>
@@ -109,10 +122,12 @@ const Explore = () => {
                   </div>
                 </div>
 
-                <div className='mt-8 mx-8 flex flex-col sm:flex-row sm:gap-0 gap-4 items-center'>
-                  <input placeholder='$ Enter a amount' className='border-[var(--blue-md)] border-2 rounded sm:mr-5 w-50 mr-2 sm:mb-3 mb-0 h-8 text-center' type="number" name="amount" />
-                  <button className="btn-2 cursor-pointer">Place a Bid</button>
-                </div>
+                <form onSubmit={(e) => handlePlaceBid(e)}>
+                  <div className='mt-8 mx-8 flex flex-col sm:flex-row sm:gap-0 gap-4 items-center'>
+                    <input required placeholder='$ Enter a amount' className='border-[var(--blue-md)] border-2 rounded sm:mr-5 w-50 mr-2 sm:mb-3 mb-0 h-8 text-center' type="number" name="amount" />
+                    <button className="btn-2 cursor-pointer">Place a Bid</button>
+                  </div>
+                </form>
               </div>
             </div>
           ))
@@ -145,7 +160,7 @@ const Explore = () => {
                 <p className=" text-[20px] font-medium ">Status : <span className={`${item.sold ? 'text-green-800' : 'text-red-800'}`}>{item.sold ? 'Sold' : 'Not Sold'}</span></p>
                 <p className='text-[22px] font-semibold mt-2 mb-4'>Final bid: $<span className='blue-md' >{item.finalBid}</span></p>
 
-                <button onClick={() => {navigate('/artworks'); setActive('artworks')}} className="btn-2 cursor-pointer">View Artwork</button>
+                <button onClick={() => { navigate('/artworks'); setActive('artworks') }} className="btn-2 cursor-pointer">View Artwork</button>
 
               </div>
             </div>

@@ -4,7 +4,16 @@ import { DataContext } from '../../hooks/DataContext';
 
 const Community = () => {
 
-  const {navigate} = useContext(DataContext);
+  const {navigate,Toast} = useContext(DataContext);
+
+  const handleSubscribtion = (e) => {
+    e.preventDefault();
+    
+    Toast.fire({
+      icon: "success",
+      title: "Successfully Subscribed🎁"
+    });
+  }
 
   return (
     <div className='home-community mb-10'>
@@ -51,7 +60,7 @@ const Community = () => {
         <div className='text-center flex flex-col justify-center md:px-20 px-1'>
           <h2 className='text-[22px] font-semibold mb-2'>Newsletter Subscription</h2>
           <p className='text-[18px] text-gray-600 sm:mx-0 mx-5 mb-5'>Subscribe to receive the latest updates on exclusive auctions, featured artists, and upcoming exhibitions.</p>
-          <form className='subscribe-form flex md:flex-row flex-col items-center gap-4 justify-center'>
+          <form onSubmit={(e) => handleSubscribtion(e)} className='subscribe-form flex md:flex-row flex-col items-center gap-4 justify-center'>
             <label htmlFor="email" className='absolute -left-99999'>Enter email</label>
             <input className=' sm:w-[220px] w-[180px]' placeholder='Enter email' type="email" name="email" required />
             <button type='submit'>Subscribe</button>
