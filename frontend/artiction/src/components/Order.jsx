@@ -28,8 +28,8 @@ const orderItems = [
         artist: "Carlos Mendez",
         medium: "Charcoal on Canvas",
         size: "30 x 22 inches",
+        quantity: 1,
         price: 1500,
-        quantity: 2,
         sold: false,
         endTime: "2023-04-10 09:15:00",
     }
@@ -38,6 +38,10 @@ const orderItems = [
 const Order = () => {
 
     const {navigate,setActive} = useContext(DataContext);
+
+    let subTotal = orderItems.reduce((sum, item) => sum + item.price, 0);
+    let shippingTotal = orderItems.length * 100;
+    let total = subTotal + shippingTotal + 50;
 
     const handleOrderSubmit = (e) => {
         e.preventDefault();
@@ -132,20 +136,20 @@ const Order = () => {
 
                         <p className='flex  '>
                             <span className='flex-1/2'>Subtotal</span>
-                            <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ 10,000</span></b>
+                            <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ {subTotal}</span></b>
                         </p>
                         <p className='flex  '>
                             <span className='flex-1/2'>Shipping Total</span>
-                            <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ 1000</span></b>
+                            <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ {shippingTotal}</span></b>
                         </p>
                         <p className='flex  '>
                             <span className='flex-1/2'>Framing Charges</span>
-                            <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ 100</span></b>
+                            <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ 50</span></b>
                         </p>
 
                         <p className='flex sm:text-[28px] text-[24px]'>
                             Total Payable
-                            <b> : <span className='font-bold blue-md'>$ 1000</span></b>
+                            <b> : <span className='font-bold blue-md'>$ {total}</span></b>
                         </p>
 
                     </div>

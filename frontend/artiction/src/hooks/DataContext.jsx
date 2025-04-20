@@ -67,6 +67,7 @@ const cartArtworks = [
     medium: "Watercolor on Paper",
     size: "20 x 16 inches",
     price: 3800,
+    fixedPrice: 2000,
     sold: true,
     endTime: "2023-04-15 14:30:00",
   },
@@ -78,6 +79,7 @@ const cartArtworks = [
     medium: "Charcoal on Canvas",
     size: "30 x 22 inches",
     price: 1500,
+    fixedPrice: 800,
     sold: false,
     endTime: "2023-04-10 09:15:00",
   },
@@ -89,6 +91,7 @@ const cartArtworks = [
     medium: "Oil on Canvas",
     size: "40 x 30 inches",
     price: 9200,
+    fixedPrice: 3000,
     sold: true,
     endTime: "2023-04-18 21:00:00",
   }
@@ -163,15 +166,16 @@ export const DataProvider = ({ children }) => {
     if (newQuantity < 1) return
     setItems(prevItems => prevItems.map(
       item => (
-        item.id === id ? { ...item, quantity: newQuantity } : item
+        item.id === id ? { ...item, quantity: newQuantity, price: item.fixedPrice * newQuantity } : item
       )
     ))
   };
 
+
   // -----------------------
 
   // Sweat alert
-  
+
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",

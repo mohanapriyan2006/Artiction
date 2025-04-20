@@ -8,9 +8,13 @@ import { DataContext } from '../hooks/DataContext';
 
 const Cart = () => {
 
-    const {navigate,setActive,items,handleRemove,updateQuantity} = useContext(DataContext);
+    const { navigate, setActive, items, handleRemove, updateQuantity } = useContext(DataContext);
 
-   
+    let subTotal = items.reduce((sum, item) => sum + item.price, 0);
+    let shippingTotal = items.length * 100;
+    let total = subTotal + shippingTotal + 50;
+
+
     return (
         <div className='mt-15'>
             {/* Your Art Cart */}
@@ -82,25 +86,25 @@ const Cart = () => {
 
                         <p className='flex  '>
                             <span className='flex-1/2'>Subtotal</span>
-                            <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ 10,000</span></b>
+                            <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ {subTotal}</span></b>
                         </p>
                         <p className='flex  '>
                             <span className='flex-1/2'>Shipping Total</span>
-                            <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ 1000</span></b>
+                            <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ {shippingTotal}</span></b>
                         </p>
                         <p className='flex  '>
                             <span className='flex-1/2'>Framing Charges</span>
-                            <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ 100</span></b>
+                            <b className='flex-1/2'>: <span className='font-bold blue-md text-[24px]'>$ 50</span></b>
                         </p>
 
                         <p className='flex sm:text-[28px] text-[24px]'>
                             Total Payable
-                            <b> : <span className='font-bold blue-md'>$ 1000</span></b>
+                            <b> : <span className='font-bold blue-md'>$ {total}</span></b>
                         </p>
 
                     </div>
 
-                    <button onClick={() => {navigate('/order'); setActive('order')}} className="btn-2 flex text-[22px] font-semibold gap-2 w-55  text-center cursor-pointer">
+                    <button onClick={() => { navigate('/order'); setActive('order') }} className="btn-2 flex text-[22px] font-semibold gap-2 w-55  text-center cursor-pointer">
                         <img src={order} alt="order icon" />
                         Checkout</button>
 
