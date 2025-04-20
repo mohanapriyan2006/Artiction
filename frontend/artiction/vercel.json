@@ -1,8 +1,17 @@
 {
     "version": 2,
+    "builds": [
+        {
+            "src": "frontend/artiction/vite.config.js",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
+        }
+    ],
     "routes": [
         {
-            "src": "/assets/.*",
+            "src": "/assets/(.*)",
             "headers": {
                 "Content-Type": "application/javascript"
             }
