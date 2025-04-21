@@ -1,47 +1,17 @@
 import React, { useContext } from 'react';
-import art3 from '../assets/art3.jpg';
-import art4 from '../assets/art4.jpg';
 import order from '../assets/order.png';
 import '../styles/Order.css'
 import { DataContext } from '../hooks/DataContext';
 import Swal from 'sweetalert2';
 
 
-
-const orderItems = [
-    {
-        id: "101",
-        img: art3,
-        title: "Starry Solitude",
-        artist: "Elena Petrova",
-        medium: "Watercolor on Paper",
-        size: "20 x 16 inches",
-        price: 3800,
-        quantity: 1,
-        sold: true,
-        endTime: "2023-04-15 14:30:00",
-    },
-    {
-        id: "102",
-        img: art4,
-        title: "Rustic Memories",
-        artist: "Carlos Mendez",
-        medium: "Charcoal on Canvas",
-        size: "30 x 22 inches",
-        quantity: 1,
-        price: 1500,
-        sold: false,
-        endTime: "2023-04-10 09:15:00",
-    }
-];
-
 const Order = () => {
 
-    const {navigate,setActive} = useContext(DataContext);
+    const {navigate,setActive,items} = useContext(DataContext);
 
-    let subTotal = orderItems.reduce((sum, item) => sum + item.price, 0);
-    let shippingTotal = orderItems.length * 100;
-    let total = subTotal + shippingTotal + 50;
+    let subTotal = items.reduce((sum, item) => sum + item.price, 0);
+    let shippingTotal = items.length * 100;
+    let total = subTotal + items + 50;
 
     const handleOrderSubmit = (e) => {
         e.preventDefault();
@@ -65,7 +35,7 @@ const Order = () => {
 
                 {/* order items */}
                 <div className="order-items flex flex-col mx-2 items-center sm:gap-8 gap-30 sm:my-8 my-20">
-                    {orderItems.map((item) => (
+                    {items.map((item) => (
                         <div key={item.id} className='flex sm:flex-row flex-col justify-center items-center box-shadow sm:gap-8 gap-0 mx-5 sm:my-0 -my-10 py-5 px-2  md:w-200 sm:w-140 w-80'>
                             <img className='h-auto w-25 rounded-full border-3 border-[var(--blue-md)]' src={item.img} alt={item.title} />
                             <div className='text-center'>

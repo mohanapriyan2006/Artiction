@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import trash from '../assets/trash.png';
 import order from '../assets/order.png';
 import payment from '../assets/payment.png';
