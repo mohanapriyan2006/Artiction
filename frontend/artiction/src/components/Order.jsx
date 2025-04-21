@@ -24,7 +24,7 @@ const Order = () => {
             text: '📦 Your Order Successfully Placed ✔️'
         })
 
-        setTimeout(() => {navigate('/artworks'); setActive('artworks')},4200);
+        setTimeout(() => {navigate('/artworks'); setActive('artworks')},2000);
 
 
     }
