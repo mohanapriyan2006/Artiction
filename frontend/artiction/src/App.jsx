@@ -8,7 +8,7 @@ import Auction from './components/Auction';
 import Cart from './components/Cart';
 import Login from './components/Login';
 import Order from './components/Order';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Missing from './components/Missing';
 import { DataProvider } from './hooks/DataContext';
 import ScrollToTop from './hooks/ScrollToTop';
@@ -28,8 +28,8 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <ScrollToTop/>
+    <BrowserRouter>
+      <ScrollToTop />
       <DataProvider>
         <div className='App'>
 
@@ -47,7 +47,7 @@ const App = () => {
 
         </div>
       </DataProvider>
-    </Router>
+    </BrowserRouter>
   )
 }
 
