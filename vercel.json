@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "frontend/artiction/dist/index.html"
+            "dest": "/index.html"
         }
     ]
 }
