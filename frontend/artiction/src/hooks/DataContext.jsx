@@ -8,6 +8,7 @@ import art4 from "../assets/art4.jpg";
 import art5 from "../assets/art5.jpg";
 import art6 from "../assets/art6.jpg";
 import art7 from "../assets/art7.jpg";
+
 import Swal from 'sweetalert2';
 
 

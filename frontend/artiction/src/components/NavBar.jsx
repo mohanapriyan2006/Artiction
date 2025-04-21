@@ -79,7 +79,7 @@ const NavBar = () => {
                             onClick={() => { navigate('/cart'); setActive('cart') }}
                         >
                             <img className='h-5 w-5 mr-1' src={order} alt="order icon" />
-                            Cart <span className={` ${nOfItems? '': 'hidden'} bg-white text-red-600 rounded-full w-4 h-4 text-[12px] font-semibold relative -top-2 left-3`}>{nOfItems}</span>
+                            Cart <span className={` ${nOfItems ? '' : 'hidden'} bg-white text-red-600 rounded-full w-4 h-4 text-[12px] font-semibold relative -top-2 left-3`}>{nOfItems}</span>
                         </button>
                     </li>
                     <li
@@ -151,7 +151,7 @@ const NavBar = () => {
                             onClick={() => { navigate('/cart'); setActive('cart') }}
                         >
                             <img className='h-5 w-5 mr-1' src={order} alt="order icon" />
-                            Cart
+                            Cart  <span className={` ${nOfItems ? '' : 'hidden'} bg-white text-red-600 rounded-full w-4 h-4 text-[12px] font-semibold relative -top-2 left-3`}>{nOfItems}</span>
                         </button>
                     </li>
                     <li

@@ -32,7 +32,7 @@ const Featured = () => {
             <li> Filter & Search</li>
             <li>Virtual Gallery</li>
           </ul>
-          <button onClick={() =>{ navigate('/artworks'); setActive('artworks')}} className='oval-btn' role='button' type="button"><span>Explore</span></button>
+          <button onClick={() =>{ navigate('/artworks'); setActive('artworks')}} className='oval-btn' role='button' type="button"><span>Explore Art</span></button>
         </div>
         <div className='flex justify-around gap-10'>
           <img className='md:w-50 md:h-auto w-40 h-50' src={img1} alt="img" />
@@ -55,7 +55,7 @@ const Featured = () => {
           <h4 className='font-semibold mb-4 text-[28px]'>Bid on Exclusive Art</h4>
           <p className='text-[20px] mb-5 text-gray-600'>  Engage in exciting real-time auctions
             and claim rare masterpieces before they’re gone. Whether you're a seasoned collector or a first-time bidder, our platform ensures a seamless and thrilling auction experience.</p>
-          <button  onClick={() =>{ navigate('/auction'); setActive('auction')}} className='oval-btn' role='button' type="button"><span>Explore</span></button>
+          <button  onClick={() =>{ navigate('/auction'); setActive('auction')}} className='oval-btn' role='button' type="button"><span>Explore Auction</span></button>
         </div>
       </div>
 

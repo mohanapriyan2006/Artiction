@@ -24,8 +24,7 @@ const Order = () => {
             text: '📦 Your Order Successfully Placed ✔️'
         })
 
-        setTimeout(() => {navigate('/artworks'); setActive('artworks')},2000);
-
+        setTimeout(() => { navigate('/artworks'); setActive('artworks') }, 2000);
 
     }
 
@@ -135,7 +134,15 @@ const Order = () => {
 
                     <div className="order-btns flex sm:flex-row flex-col sm:items-start items-center sm:gap-0 gap-8 justify-around w-full mt-10 mb-4">
                         <button onClick={() => { navigate('/artworks'); setActive('artworks') }} type='button' className="btn-1 cursor-pointer text-[22px] font-semibold w-50">Cancel</button>
-                        <button disabled={orderItems.length? false: true} type='submit' className={`btn-2 flex text-[22px] font-semibold gap-2 w-55 text-center ${orderItems.length ? 'cursor-pointer' : 'cursor-no-drop'}`}>
+                        <button onClick={() => {
+                            if (!orderItems.length) {
+                                Swal.fire({
+                                    timer: 2000,
+                                    title: '🛒Your Cart is Empty ❗',
+                                    icon: 'warning'
+                                })
+                            }
+                        }} type='submit' className={`btn-2 flex text-[22px] font-semibold gap-2 w-55 text-center ${orderItems.length ? 'cursor-pointer' : 'cursor-no-drop'}`}>
                             <img src={order} alt="order icon" />
                             Place Order</button>
                     </div>

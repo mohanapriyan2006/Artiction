@@ -4,6 +4,7 @@ import order from '../assets/order.png';
 import payment from '../assets/payment.png';
 import '../styles/Cart.css';
 import { DataContext } from '../hooks/DataContext';
+import Swal from 'sweetalert2';
 
 
 const Cart = () => {
@@ -114,10 +115,17 @@ const Cart = () => {
                     </div>
 
                     <button
-                        disabled={cartItems.length ? false : true}
                         onClick={() => {
-                            setOrderItems(cartItems);
-                            navigate('/order'); setActive('order');
+                            if (cartItems.length) {
+                                setOrderItems(cartItems);
+                                navigate('/order'); setActive('order');
+                            }else{
+                                Swal.fire({
+                                    timer: 2000,
+                                    title: '🛒Your Cart is Empty ❗',
+                                    icon: 'warning'
+                                })
+                            }
                         }} className={`btn-2 flex text-[22px] font-semibold gap-2 w-55  text-center ${cartItems.length ? 'cursor-pointer' : 'cursor-no-drop'}`}>
                         <img src={order} alt="order icon" />
                         Checkout</button>

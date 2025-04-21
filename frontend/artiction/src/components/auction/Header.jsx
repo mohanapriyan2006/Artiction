@@ -10,7 +10,7 @@ const Header = () => {
       <div className="header_content  sm:w-150 w-fit md:mt-10 mt-0 text-center md:text-start">
         <h1 className='font2 sm:text-6xl text-4xl'>Bid on Masterpieces from Talented Artists!</h1>
         <p className='font-medium text-gray-600 my-5 text-[20px] sm:mx-0 mx-1'>Dive into a world of stunning creativity and own a unique piece of art that speaks to your soul. Here, collectors, art lovers, and newcomers alike can explore, bid, and win beautiful artworks from emerging and established artists.</p>
-        <a href='#exploreAuction'><button className='oval-btn' role='button' type="button">Explore</button></a>
+        <a href='#exploreAuction'><button className='oval-btn' role='button' type="button">View Auctions</button></a>
       </div>
     </div>
   )
