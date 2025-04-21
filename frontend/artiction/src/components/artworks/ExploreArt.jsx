@@ -24,6 +24,13 @@ const ExploreArt = () => {
     handlePageClick,
     Toast } = useContext(DataContext);
 
+  const handleNotLogin = () => {
+    Toast.fire({
+      icon: "info",
+      title: "Login ,then purchase 😊"
+    });
+  }
+
 
   return (
     <div id='exploreArt' className='explore-art mt-20'>
@@ -101,7 +108,8 @@ const ExploreArt = () => {
                   }
                 }
                 else {
-                  navigate('/login')
+                  handleNotLogin();
+                  navigate('/login');
                 }
               }} className="btn-2 cursor-pointer">
                 Add to Cart
@@ -109,6 +117,7 @@ const ExploreArt = () => {
               <button onClick={() => {
                 if (isLogined) { navigate('/order'); setActive('order'); setOrderItems([item]); }
                 else {
+                  handleNotLogin();
                   navigate('/login');
                 }
               }} className="btn-1 cursor-pointer">

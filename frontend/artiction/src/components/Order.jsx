@@ -138,7 +138,7 @@ const Order = () => {
                             if (!orderItems.length) {
                                 Swal.fire({
                                     timer: 2000,
-                                    title: '🛒Your Cart is Empty ❗',
+                                    title: '📦Your Order items are Empty❗',
                                     icon: 'warning'
                                 })
                             }

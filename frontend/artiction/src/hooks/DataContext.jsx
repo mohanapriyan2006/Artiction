@@ -248,7 +248,7 @@ export const DataProvider = ({ children }) => {
     toast: true,
     position: "top",
     showConfirmButton: false,
-    timer: 1500,
+    timer: 2000,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.onmouseenter = Swal.stopTimer;
