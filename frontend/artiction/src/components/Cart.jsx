@@ -8,10 +8,16 @@ import { DataContext } from '../hooks/DataContext';
 
 const Cart = () => {
 
-    const { navigate, setActive, items, handleRemove, updateQuantity } = useContext(DataContext);
+    const { navigate,
+        setActive,
+        handleRemove,
+        updateQuantity,
+        cartItems,
+        setOrderItems
+    } = useContext(DataContext);
 
-    let subTotal = items.reduce((sum, item) => sum + item.price, 0);
-    let shippingTotal = items.length * 100;
+    let subTotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+    let shippingTotal = cartItems.length * 100;
     let total = subTotal + shippingTotal + 50;
 
 
@@ -24,8 +30,8 @@ const Cart = () => {
                 <p className='text-center text-gray-600 text-[18px] my-5 '>Review your selected artwork(s) before you proceed to checkout. Each piece is one-of-a-kind — make it yours!</p>
             </div>
 
-            {items.length ? <div className="cart-items flex flex-col mx-2 items-center sm:gap-8 gap-30 sm:my-8 my-20">
-                {items.map((item) => (
+            {cartItems.length ? <div className="cart-items flex flex-col mx-2 items-center sm:gap-8 gap-30 sm:my-8 my-20">
+                {cartItems.map((item) => (
                     <div key={item.id} className='flex sm:flex-row flex-col justify-center items-center box-shadow sm:gap-8 gap-0 mx-5 sm:my-0 -my-10 py-5 px-2  md:w-200 sm:w-160  '>
                         <img className='h-auto w-50' src={item.img} alt={item.title} />
                         <div className='text-center'>
@@ -68,7 +74,10 @@ const Cart = () => {
                     </div>
                 ))}
             </div>
-                : <h6 className='text-2xl font-semibold text-center my-20'> Your Cart is <span className='text-red-800'>Empty !</span></h6>}
+                : <div className='place-content-center place-items-center'>
+                    <h6 className='text-2xl font-semibold text-center mt-20'> Your Cart are <span className='text-red-800'>Empty !</span></h6>
+                    <h5 className='sm:text-[24px] text-[18px] font-semibold my-20'> Go to <button onClick={() => { navigate('/artworks'); setActive('artworks') }} className="btn-2 cursor-pointer">Artworks</button> </h5>
+                </div>}
 
             {/*  Order Summary */}
             <div className="title flex flex-col items-center my-5">
@@ -104,7 +113,12 @@ const Cart = () => {
 
                     </div>
 
-                    <button onClick={() => { navigate('/order'); setActive('order') }} className="btn-2 flex text-[22px] font-semibold gap-2 w-55  text-center cursor-pointer">
+                    <button
+                        disabled={cartItems.length ? false : true}
+                        onClick={() => {
+                            setOrderItems(cartItems);
+                            navigate('/order'); setActive('order');
+                        }} className={`btn-2 flex text-[22px] font-semibold gap-2 w-55  text-center ${cartItems.length ? 'cursor-pointer' : 'cursor-no-drop'}`}>
                         <img src={order} alt="order icon" />
                         Checkout</button>
 

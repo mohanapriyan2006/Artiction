@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 import art1 from "../assets/art1.jpg";
@@ -113,7 +113,7 @@ const Artworks = [
   },
   {
     id: "101",
-    img: art3,
+    img: art1,
     title: "Starry Solitude",
     artist: "Elena Petrova",
     medium: "Watercolor on Paper",
@@ -123,11 +123,11 @@ const Artworks = [
     quantity: 1,
     sold: true,
     endTime: "2023-04-15 14:30:00",
-    description: "",
+    description: "A lone figure beneath a swirling galaxy of stars — peaceful and contemplative.",
   },
   {
     id: "102",
-    img: art4,
+    img: art2,
     title: "Rustic Memories",
     artist: "Carlos Mendez",
     medium: "Charcoal on Canvas",
@@ -137,11 +137,11 @@ const Artworks = [
     quantity: 1,
     sold: false,
     endTime: "2023-04-10 09:15:00",
-    description: "",
+    description: "Old barns and forgotten fields captured in bold, gritty strokes.",
   },
   {
     id: "103",
-    img: art5,
+    img: art3,
     title: "Azure Depths",
     artist: "Nina Yamamoto",
     medium: "Oil on Canvas",
@@ -151,9 +151,11 @@ const Artworks = [
     quantity: 1,
     sold: true,
     endTime: "2023-04-18 21:00:00",
-    description: "",
+    description: "A deep dive into the blue — waves of emotion in every brushstroke.",
   },
 ];
+
+
 
 
 
@@ -176,6 +178,12 @@ export const DataProvider = ({ children }) => {
 
   // Explore Artworks data
 
+  // Order items
+  const [orderItems, setOrderItems] = useState([]);
+
+  // Cart items
+  const [cartItems, setCartItems] = useState([]);
+
   const [desc, setDesc] = useState(false);
   const [sortBy, setSortBy] = useState(' ');
   const [search, setSearch] = useState('');
@@ -183,7 +191,7 @@ export const DataProvider = ({ children }) => {
   // search function
 
   const filteredArt = Artworks.filter((art) => (
-    art == '' ? [...art] : (art.name + art.description).toLowerCase().includes(search.toLowerCase())
+    art == '' ? [...art] : (art.title + art.artist + art.description).toLowerCase().includes(search.toLowerCase())
   )).reverse()
 
   const handleSearch = (e) => {
@@ -206,29 +214,29 @@ export const DataProvider = ({ children }) => {
 
   // Cart Data
 
-  const [items, setItems] = useState(
-    Artworks.map(item => (
-      {
-        ...item,
-        quantity: 1
-      }
-    ))
-  )
-
   const handleRemove = (id) => {
-    setItems(prevItems => prevItems.filter(
+    setCartItems(prevItems => prevItems.filter(
       item => item.id !== id
     ))
   };
 
   const updateQuantity = (id, newQuantity) => {
     if (newQuantity < 1) return
-    setItems(prevItems => prevItems.map(
+    setCartItems(prevItems => prevItems.map(
       item => (
         item.id === id ? { ...item, quantity: newQuantity, price: item.fixedPrice * newQuantity } : item
       )
     ))
   };
+
+  const [nOfItems, setNOfItems] = useState(0);
+
+  useEffect(() => {
+    setNOfItems(cartItems.length);
+  }, [cartItems])
+
+
+  // -----------
 
 
   // -----------------------
@@ -237,9 +245,9 @@ export const DataProvider = ({ children }) => {
 
   const Toast = Swal.mixin({
     toast: true,
-    position: "top-end",
+    position: "top",
     showConfirmButton: false,
-    timer: 3000,
+    timer: 1500,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.onmouseenter = Swal.stopTimer;
@@ -260,8 +268,10 @@ export const DataProvider = ({ children }) => {
           sortBy, setSortBy,
           search, handleSearch,
           currentItems, pageCount, handlePageClick,
-          items, handleRemove, updateQuantity,
-          Toast
+          handleRemove, updateQuantity,
+          Toast,
+          orderItems, setOrderItems, cartItems, setCartItems,
+          nOfItems, setNOfItems
         }
       }
     >

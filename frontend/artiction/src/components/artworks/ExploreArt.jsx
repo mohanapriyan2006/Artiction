@@ -8,8 +8,21 @@ import { DataContext } from '../../hooks/DataContext';
 
 const ExploreArt = () => {
 
-  const { navigate, setActive, isLogined, desc, setDesc, sortBy, setSortBy, search, handleSearch, currentItems, pageCount, handlePageClick } = useContext(DataContext);
-
+  const { navigate,
+    setOrderItems,
+    cartItems,
+    setCartItems,
+    setActive,
+    isLogined,
+    desc,
+    setDesc, sortBy,
+    setSortBy,
+    search,
+    handleSearch,
+    currentItems,
+    pageCount,
+    handlePageClick,
+    Toast } = useContext(DataContext);
 
 
   return (
@@ -29,7 +42,7 @@ const ExploreArt = () => {
       {/* search section */}
       <div className="filter-div place-content-center flex m-10  md:flex-row md:gap-0 gap-10 flex-col">
 
-        <form className=' items-end flex'>
+        <form className=' items-end flex' onSubmit={(e) => e.preventDefault()}>
           <input
             placeholder='Type something for search . . .' className='search-box sm:w-100 w-60  ' type="search" name="search" onChange={(e) => handleSearch(e)}
             value={search}
@@ -68,12 +81,24 @@ const ExploreArt = () => {
             <h3 className="text-[20px] font-bold">{item.title}</h3>
             <h3 className="text-[18px] font-semibold">- {item.artist}</h3>
             <p className="text-[18px] font-semibold">Price: <span className='blue-md'>${item.fixedPrice}</span> </p>
-            <p>Medium: {item.medium} / <span>Size: {item.size}</span> </p>
+            <p>Medium: {item.medium} | <span>Size: {item.size}</span> </p>
+            <p className="text-gray-500">{item.description}</p>
             <div className='mt-5 flex items-center justify-center gap-3'>
               <button onClick={() => {
                 if (isLogined) {
-                  navigate('/cart');
-                  setActive('cart');
+                  Toast.fire({
+                    icon: "success",
+                    title: "Art added to Cart 🛒"
+                  });
+                  const isItemInCart = cartItems.some(cart => cart.id === item.id);
+                  if (!isItemInCart) {
+                    setCartItems([...cartItems, item]);
+                  }
+                  else {
+                    setCartItems(cartItems.map(cart => (
+                      cart.id === item.id ? { ...cart, quantity: cart.quantity + 1 } : cart
+                    )))
+                  }
                 }
                 else {
                   navigate('/login')
@@ -82,9 +107,9 @@ const ExploreArt = () => {
                 Add to Cart
               </button>
               <button onClick={() => {
-                if (isLogined) { navigate('/order'); setActive('order') }
+                if (isLogined) { navigate('/order'); setActive('order'); setOrderItems([item]); }
                 else {
-                  navigate('/login')
+                  navigate('/login');
                 }
               }} className="btn-1 cursor-pointer">
                 Buy now
