@@ -16,7 +16,7 @@ const liveAuctions = [
     medium: "Oil on Canvas",
     size: "36 x 24 inches",
     currentBid: 5000,
-    timeLeft: "2025-12-01",
+    timeLeft: "2027-12-01",
     img: art1,
   },
   {
@@ -26,7 +26,7 @@ const liveAuctions = [
     medium: "Acrylic on Wood",
     size: "24 x 18 inches",
     currentBid: 3200,
-    timeLeft: "2025-8-01",
+    timeLeft: "2027-8-01",
     img: art2,
   }
 ];
