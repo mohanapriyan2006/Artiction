@@ -12,6 +12,8 @@ import { Routes, Route } from "react-router-dom";
 import Missing from './components/Missing';
 import { DataProvider } from './hooks/DataContext';
 import ScrollToTop from './hooks/ScrollToTop';
+import Profile from './components/Profile';
+import AddArtAuction from './components/AddArtAuction';
 
 
 const App = () => {
@@ -39,6 +41,9 @@ const App = () => {
           <Route path="/auction" element={<Layout><Auction /></Layout>} />
           <Route path="/cart" element={<Layout><Cart /></Layout>} />
           <Route path="/order" element={<Layout><Order /></Layout>} />
+          <Route path="/profile" element={<Layout><Profile /></Layout>} />
+          <Route path="/add/:what" element={<Layout><AddArtAuction /></Layout>} />
+          <Route path="/add/:what" element={<Layout><AddArtAuction /></Layout>} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<Missing />} />
 

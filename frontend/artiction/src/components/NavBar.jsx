@@ -86,6 +86,7 @@ const NavBar = () => {
                         className={`cursor-pointer -ml-5 ${isLogined ? '' : 'hidden'}`}
                         onMouseEnter={() => handleUserIconHover(true)}
                         onMouseLeave={() => handleUserIconHover(false)}
+                        onClick={() => { navigate('/profile'); setActive('profile') }}
                     >
                         <UserIcon color={userIconColor} />
                     </li>
@@ -158,6 +159,7 @@ const NavBar = () => {
                         className={`flex text-[20px] font-semibold gap-2 cursor-pointer ${isLogined ? '' : 'hidden'}`}
                         onMouseEnter={() => handleUserIconHover(true)}
                         onMouseLeave={() => handleUserIconHover(false)}
+                        onClick={() => { navigate('/profile'); setActive('profile') }}
                     >
                         <UserIcon color={userIconColor} />
                         Profile

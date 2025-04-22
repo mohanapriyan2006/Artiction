@@ -37,7 +37,7 @@ const Cart = () => {
                         <img className='h-auto w-50' src={item.img} alt={item.title} />
                         <div className='text-center'>
                             <p className='sm:text-[24px] text-[20px] font-semibold my-3'>" <span className='blue-md'>{item.title}</span> " - {item.artist}</p>
-                            <p className='text-gray-600 text-[18px] font-medium'>Mediun: {item.medium}</p>
+                            <p className='text-gray-600 text-[18px] font-medium'>Medium: {item.medium}</p>
                             <p className='text-gray-600 text-[18px] font-medium'>Size: {item.size}</p>
                             <div className='flex items-center justify-center gap-5'>
                                 <p className='text-[22px] font-semibold mt-2'>Price: $<span className='blue-md' >{item.price}</span></p>

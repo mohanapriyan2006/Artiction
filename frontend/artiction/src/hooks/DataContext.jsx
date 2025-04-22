@@ -236,9 +236,14 @@ export const DataProvider = ({ children }) => {
     setNOfItems(cartItems.length);
   }, [cartItems])
 
+  //  ------------------
+
+  // Login Role
+
+  const [role, setRole] = useState('Collector');
+
 
   // -----------
-
 
   // -----------------------
 
@@ -272,7 +277,8 @@ export const DataProvider = ({ children }) => {
           handleRemove, updateQuantity,
           Toast,
           orderItems, setOrderItems, cartItems, setCartItems,
-          nOfItems, setNOfItems
+          nOfItems, setNOfItems,
+          role, setRole
         }
       }
     >

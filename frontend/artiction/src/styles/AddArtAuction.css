@@ -1,0 +1,7 @@
+.input-a {
+    margin-top: 2px;
+    border: 2px solid var(--blue-md);
+    border-radius: 5px;
+    height: 35px;
+    padding: 15px;
+}
