@@ -11,74 +11,25 @@ import art6 from "../assets/art6.jpg";
 
 import { DataContext } from '../hooks/DataContext';
 
-
 const AddArtAuction = () => {
 
     const { what } = useParams();
 
-    const { navigate,
+    const {
         addArtAuction,
         setAddArtAuction,
-        setProfileArtworks,
-        setProfileAuctions,
-        Toast,
+        handleAddArtAuctionSubmit,
+        date, setDate
     } = useContext(DataContext)
 
 
-    const handleAddArtAuctionSubmit = (e) => {
-        e.preventDefault();
-        if (what == 'Artwork') {
-            setProfileArtworks(prev => {
-                const exists = prev.some(item => item.id === addArtAuction.id);
-                if (exists) {
-                    return prev.map(item =>
-                        item.id === addArtAuction.id ? { ...addArtAuction } : item
-                    );
-                } else {
-                    const newItem = { ...addArtAuction, id: prev.length + 1 };
-                    return [...prev, newItem];
-                }
-            });
-            Toast.fire({
-                icon: "success",
-                title: "Artwork added ✅"
-            });
-        } else {
-            setProfileAuctions(prev => {
-                const exists = prev.some(item => item.id === addArtAuction.id);
-                if (exists) {
-                    return prev.map(item =>
-                        item.id === addArtAuction.id ? { ...addArtAuction } : item
-                    );
-                } else {
-                    const newItem = { ...addArtAuction, id: prev.length + 1 };
-                    return [...prev, newItem];
-                }
-            });
-            Toast.fire({
-                icon: "success",
-                title: "Auction added ✅"
-            });
-        }
-
-        setAddArtAuction({
-            id: "",
-            title: "",
-            description: "",
-            img: "",
-            medium: "",
-            price: 0,
-            size: ""
-        })
-        navigate('/profile');
-    }
 
 
     return (
         <div className='place-items-center'>
             <form
                 className="add-item md:w-200 sm:w-150 w-70 border-dashed border-2 border-[var(--blue-md)] rounded mx-5 my-15 py-5 sm:px-10 px-3 flex flex-col gap-1"
-                onSubmit={(e) => handleAddArtAuctionSubmit(e)}
+                onSubmit={(e) => handleAddArtAuctionSubmit(e, what , addArtAuction.id)}
             >
                 <h1 className='text-center text-2xl font-semibold mt-3'>{what} Details </h1>
 
@@ -117,6 +68,16 @@ const AddArtAuction = () => {
                     placeholder='$ Enter Price'
                     type="number" required
                 />
+
+                {what == 'Auction' && <label className='text-[20px] font-medium mt-5'>Ending Date :</label>}
+                {what == 'Auction' &&
+                    <input
+                        onChange={(e) => setDate(e.target.value)}
+                        value={date}
+                        className='input-a'
+                        placeholder='$ Enter Price'
+                        type="date" required
+                    />}
 
                 <label className='text-[20px] font-medium mt-5'>Description :</label>
                 <textarea onChange={(e) => setAddArtAuction(prev => ({ ...prev, description: e.target.value }))}

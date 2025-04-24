@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Home from './components/Home';
 import NavBar from './components/NavBar';
 import './App.css'
@@ -14,7 +14,7 @@ import { DataProvider } from './hooks/DataContext';
 import ScrollToTop from './hooks/ScrollToTop';
 import Profile from './components/Profile';
 import AddArtAuction from './components/AddArtAuction';
-
+import Sample from './components/Sample';
 
 const App = () => {
 
@@ -43,8 +43,8 @@ const App = () => {
           <Route path="/order" element={<Layout><Order /></Layout>} />
           <Route path="/profile" element={<Layout><Profile /></Layout>} />
           <Route path="/add/:what" element={<Layout><AddArtAuction /></Layout>} />
-          <Route path="/add/:what" element={<Layout><AddArtAuction /></Layout>} />
           <Route path="/login" element={<Login />} />
+          <Route path="/sample" element={<Sample />} />
           <Route path="*" element={<Missing />} />
 
         </Routes>

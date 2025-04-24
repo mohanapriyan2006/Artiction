@@ -81,7 +81,7 @@ const ExploreArt = () => {
       {/* Art listing */}
 
       {/* 2x2 Grid */}
-      <div className="flex flex-wrap items-center justify-center gap-5 sm:my-15 my-10">
+      {currentItems.length ? <div className="flex flex-wrap items-center justify-center gap-5 sm:my-15 my-10">
         {currentItems.map((item, id) => (
           <div key={id} className="border p-5 w-100 box-shadow text-center mx-2 ">
             <img className='h-auto w-60 m-auto' src={item.img} alt={item.name} />
@@ -103,7 +103,7 @@ const ExploreArt = () => {
                   }
                   else {
                     setCartItems(cartItems.map(cart => (
-                      cart.id === item.id ? { ...cart, quantity: cart.quantity + 1 } : cart
+                      cart.id === item.id ? { ...cart, quantity: cart.quantity + 1, price: item.price + item.fixedPrice } : cart
                     )))
                   }
                 }
@@ -127,6 +127,7 @@ const ExploreArt = () => {
           </div>
         ))}
       </div>
+      : <p className='text-center font-medium blue-md text-2xl'>Artworks are Loading ...</p>}
 
       {/* Pagination Controls */}
       <div className="my-6 flex justify-center">

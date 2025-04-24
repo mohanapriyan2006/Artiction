@@ -8,7 +8,6 @@ import trash from '../assets/trash.png';
 import { DataContext } from '../hooks/DataContext';
 
 
-
 const Profile = () => {
     const { navigate,
         role,

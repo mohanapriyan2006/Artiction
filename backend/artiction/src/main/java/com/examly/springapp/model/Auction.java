@@ -19,12 +19,14 @@ public class Auction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String img;
     private String title;
     private String artist;
     private String medium;
     private String size;
     private Double price;
     private String description;
-    private Date startingDate;
+    private Date endTime;
+    private boolean isSold;
 
 }
