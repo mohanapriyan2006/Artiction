@@ -141,8 +141,8 @@ export const DataProvider = ({ children }) => {
   // Cart items
   const [cartItems, setCartItems] = useState([]);
 
-  const [desc, setDesc] = useState(false);
-  const [sortBy, setSortBy] = useState(' ');
+  const [direction, setDirection] = useState('asc');
+  const [sortBy, setSortBy] = useState('title');
   const [search, setSearch] = useState('');
 
   // search function
@@ -170,6 +170,17 @@ export const DataProvider = ({ children }) => {
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
   };
+
+
+  // pagination
+
+  useEffect(() => {
+    async function fetchArtByPagination() {
+      const res = await api.get(`artworks/?sortBy=${sortBy}&direction=${direction}`);
+      await setArtworks(res.data.content);
+    }
+    fetchArtByPagination();
+  }, [sortBy, direction])
 
   // --------------------------
 
@@ -353,7 +364,7 @@ export const DataProvider = ({ children }) => {
           isMenuOpen, setIsMenuOpen,
           toggleMenu,
           isLogined, setIsLogined,
-          desc, setDesc,
+          direction, setDirection,
           sortBy, setSortBy,
           search, handleSearch,
           currentItems, pageCount, handlePageClick,

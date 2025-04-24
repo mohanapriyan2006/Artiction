@@ -39,8 +39,8 @@ public class ArtworkController {
 
     @GetMapping
     public ResponseEntity<Page<Artwork>> getAllArtworks(@RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size, @RequestParam(defaultValue = "title") String sortBy,
-            @RequestParam(defaultValue = "acs") String direction) {
+            @RequestParam(defaultValue = "20") int size, @RequestParam(defaultValue = "title") String sortBy,
+            @RequestParam(defaultValue = "asc") String direction) {
 
         PageRequest pageable = PageRequest.of(page, size,
                 Sort.by(direction.equalsIgnoreCase("asc") ? Sort.Order.asc(sortBy) : Sort.Order.desc(sortBy)));

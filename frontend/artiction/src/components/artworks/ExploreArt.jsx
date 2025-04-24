@@ -14,9 +14,8 @@ const ExploreArt = () => {
     setCartItems,
     setActive,
     isLogined,
-    desc,
-    setDesc, sortBy,
-    setSortBy,
+    direction, setDirection,
+    sortBy, setSortBy,
     search,
     handleSearch,
     currentItems,
@@ -70,9 +69,9 @@ const ExploreArt = () => {
           >Price
           </button>
 
-          <p className='text-3xl cursor-pointer -mt-4' onClick={() => desc ? setDesc(false) : setDesc(true)}>
-            <i className={`${desc ? 'text-4xl' : ''}`}>↑</i>
-            <i className={`${!desc ? 'text-4xl' : ''}`}>↓</i>
+          <p className='text-3xl font-light cursor-pointer -mt-4' onClick={() => direction == 'asc' ? setDirection('desc') : setDirection('asc')}>
+            <i className={`${direction == 'desc' ? 'text-4xl font-extrabold' : ''}`}>↑</i>
+            <i className={`${direction == 'asc' ? 'text-4xl font-extrabold' : ''}`}>↓</i>
           </p>
         </div>
       </div>
@@ -89,7 +88,7 @@ const ExploreArt = () => {
             <h3 className="text-[18px] font-semibold">- {item.artist}</h3>
             <p className="text-[18px] font-semibold">Price: <span className='blue-md'>${item.fixedPrice}</span> </p>
             <p>Medium: {item.medium} | <span>Size: {item.size}</span> </p>
-            <p className="text-gray-500">{item.description}</p>
+            <p className="text-gray-500">{item.directionription}</p>
             <div className='mt-5 flex items-center justify-center gap-3'>
               <button onClick={() => {
                 if (isLogined) {
@@ -127,7 +126,7 @@ const ExploreArt = () => {
           </div>
         ))}
       </div>
-      : <p className='text-center font-medium blue-md text-2xl'>Artworks are Loading ...</p>}
+        : <p className='text-center font-medium blue-md text-2xl'>Artworks are Loading ...</p>}
 
       {/* Pagination Controls */}
       <div className="my-6 flex justify-center">
