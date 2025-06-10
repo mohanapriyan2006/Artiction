@@ -1,6 +1,6 @@
 # 🎨 Artiction – Where Art Meets Auction
 
-#### Visit our Artiction 🎨 :  [https://artiction.netlify.app](https://artiction.netlify.app/)
+## Visit our Artiction 🎨 :  [https://artiction.netlify.app](https://artiction.netlify.app/)
 
 **Artiction** is a full-stack web platform that bridges the gap between creativity and commerce. Designed for artists, collectors, and enthusiasts, it transforms traditional art galleries into dynamic digital spaces.
 
@@ -21,13 +21,13 @@
 ## 🚀 Vision
 Artiction is more than a gallery—it's a digital stage for artists and a vibrant marketplace for collectors. It empowers creativity, ensures fair bidding, and opens doors for global artistic exchange.
 
-## Design
+## 🎨 Design
 ![image1](./screenshots/image1.png)
 ![image2](./screenshots/image2.png)
 ![image3](./screenshots/image3.png)
 
-## Preview
-[![Preview](./screenshots/preview.png "Artiction Website")](https://artiction.netlify.app/)
+## 💻 Preview
+![Preview](./screenshots/preview.png "[Artiction Website](https://artiction.netlify.app/)")
 
 ---
 
