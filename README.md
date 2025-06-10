@@ -27,7 +27,7 @@ Artiction is more than a gallery—it's a digital stage for artists and a vibran
 ![image3](./screenshots/image3.png)
 
 ## Preview
-![Preview](./screenshots/preview.png "Artiction Website")
+![Preview](./screenshots/preview.png "Artiction Website")(https://artiction.netlify.app/)
 
 ---
 
