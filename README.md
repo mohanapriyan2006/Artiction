@@ -23,7 +23,7 @@ Artiction is more than a gallery—it's a digital stage for artists and a vibran
 
 ## 🎨 Design
 ![image1](./screenshots/image1.png)
-![image2](./screenshots/image2.png)
+![image2](./screenshots/image2.jpg)
 
 ## 💻 Preview
 ![Preview](./screenshots/preview.gif "Artiction website")
