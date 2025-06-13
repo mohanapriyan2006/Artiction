@@ -22,8 +22,8 @@
 Artiction is more than a gallery—it's a digital stage for artists and a vibrant marketplace for collectors. It empowers creativity, ensures fair bidding, and opens doors for global artistic exchange.
 
 ## 🎨 Design
-![image1](./screenshots/image1.png)
-![image2](./screenshots/image2.jpg)
+![image1](./screenshots/image1.jpg)
+![image2](./screenshots/image2.png)
 
 ## 💻 Preview
 ![Preview](./screenshots/preview.gif "Artiction website")
