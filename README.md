@@ -28,7 +28,7 @@ Artiction is more than a gallery—it's a digital stage for artists and a vibran
 ## 💻 Preview
 ![Preview](./screenshots/preview.gif "Artiction website")
 
-## 🖥️ Video Explaination
+## 🖥️ Video Explanation
 [**Video Link** 🚀](https://www.linkedin.com/posts/mohanapriyan-m2006_java-springboot-reactjs-activity-7321169284607492096-5HEY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEdfjWABL_2j98un4JlBtZDRvHOOIBs2IsE)
 
 _click and watch video_
