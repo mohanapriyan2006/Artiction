@@ -23,7 +23,8 @@ const NavBar = () => {
         setIsMenuOpen,
         toggleMenu,
         isLogined,
-        nOfItems
+        nOfItems,
+        logoutUser
     } = useContext(DataContext);
 
     const [userIconColor, setUserIconColor] = useState("#8f8f8f");
@@ -89,6 +90,14 @@ const NavBar = () => {
                         onClick={() => { navigate('/profile'); setActive('profile') }}
                     >
                         <UserIcon color={userIconColor} />
+                    </li>
+                    <li className={`font-semibold ${isLogined ? '' : 'hidden'}`}>
+                        <button
+                            className='log-btn'
+                            onClick={() => { logoutUser(); navigate('/login'); setActive('login'); }}
+                        >
+                            Logout
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -163,6 +172,14 @@ const NavBar = () => {
                     >
                         <UserIcon color={userIconColor} />
                         Profile
+                    </li>
+                    <li className={`font-semibold ${isLogined ? '' : 'hidden'}`}>
+                        <button
+                            className='log-btn'
+                            onClick={() => { logoutUser(); setIsMenuOpen(false); navigate('/login'); setActive('login'); }}
+                        >
+                            Logout
+                        </button>
                     </li>
                 </ul>
             </div>

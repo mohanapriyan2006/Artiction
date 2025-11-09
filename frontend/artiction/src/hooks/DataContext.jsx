@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
@@ -203,6 +204,73 @@ export const DataProvider = ({ children }) => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLogined, setIsLogined] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null); // { username, role }
+  const [users, setUsers] = useState([]); // stored users
+  const LS_USERS_KEY = 'artiction_users';
+  const LS_CURRENT_USER_KEY = 'artiction_current_user';
+
+  useEffect(() => {
+    // load users
+    try {
+      const raw = localStorage.getItem(LS_USERS_KEY);
+      const arr = raw ? JSON.parse(raw) : [];
+      setUsers(Array.isArray(arr) ? arr : []);
+    } catch { setUsers([]); }
+    // load current user
+    try {
+      const rawCur = localStorage.getItem(LS_CURRENT_USER_KEY);
+      if (rawCur) {
+        const cu = JSON.parse(rawCur);
+        if (cu && cu.username && cu.role) {
+          setCurrentUser(cu);
+          setIsLogined(true);
+          setRole(cu.role);
+        }
+      }
+    } catch { /* ignore */ }
+  }, []);
+
+  const persistUsers = (list) => {
+    setUsers(list);
+    localStorage.setItem(LS_USERS_KEY, JSON.stringify(list));
+  };
+
+  const registerUser = ({ username, password, role }) => {
+    const uname = String(username || '').trim();
+    const pwd = String(password || '').trim();
+    const r = role === 'Artist' ? 'Artist' : 'Collector';
+    if (!uname || !pwd) return { ok: false, message: 'Username & password required' };
+    if (pwd.length < 6) return { ok: false, message: 'Password min 6 chars' };
+    const exists = users.some(u => u.username.toLowerCase() === uname.toLowerCase());
+    if (exists) return { ok: false, message: 'Username already exists' };
+    const newUser = { username: uname, password: pwd, role: r, createdAt: Date.now() };
+  persistUsers([...users, newUser]);
+  try { Toast.fire({ icon: 'success', title: 'Registered' }); } catch { /* ignore */ }
+    return { ok: true };
+  };
+
+  const loginUser = ({ username, password, role }) => {
+    const uname = String(username || '').trim();
+    const pwd = String(password || '').trim();
+    if (!uname || !pwd) return { ok: false, message: 'Enter credentials' };
+    const found = users.find(u => u.username.toLowerCase() === uname.toLowerCase());
+    if (!found) return { ok: false, message: 'User not found' };
+    if (found.password !== pwd) return { ok: false, message: 'Wrong password' };
+    if (role && role !== found.role) return { ok: false, message: `Login as ${found.role}` };
+    const cu = { username: found.username, role: found.role };
+    setCurrentUser(cu);
+    setIsLogined(true);
+    setRole(found.role);
+  localStorage.setItem(LS_CURRENT_USER_KEY, JSON.stringify(cu));
+  try { Toast.fire({ icon: 'success', title: `Welcome ${found.username}` }); } catch { /* ignore */ }
+    return { ok: true, user: cu };
+  };
+
+  const logoutUser = () => {
+    setCurrentUser(null);
+    setIsLogined(false);
+    localStorage.removeItem(LS_CURRENT_USER_KEY);
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -347,6 +415,9 @@ export const DataProvider = ({ children }) => {
           isMenuOpen, setIsMenuOpen,
           toggleMenu,
           isLogined, setIsLogined,
+          currentUser,
+          users,
+          registerUser, loginUser, logoutUser,
           desc, setDesc,
           sortBy, setSortBy,
           search, handleSearch,

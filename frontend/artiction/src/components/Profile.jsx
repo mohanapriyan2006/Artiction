@@ -16,7 +16,8 @@ const Profile = () => {
         profileArtworks,
         profileAuctions,
         handleDeleteArt, handleDeleteAuction,
-        setAddArtAuction
+        setAddArtAuction,
+        logoutUser
     } = useContext(DataContext);
 
 
@@ -26,6 +27,12 @@ const Profile = () => {
             <div className="title flex flex-col items-center mt-10">
                 <b className='font2 font-bold sm:text-[30px] text-[22px]'>Profile</b>
                 <span className='title-line'>-</span>
+                <button
+                    className='log-btn mt-4'
+                    onClick={() => { logoutUser(); navigate('/login'); }}
+                >
+                    Logout
+                </button>
             </div>
 
             <div className="sm:border rounded p-5 sm:mx-4 my-8">

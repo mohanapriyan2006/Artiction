@@ -7,6 +7,7 @@ import Artworks from './components/Artworks';
 import Auction from './components/Auction';
 import Cart from './components/Cart';
 import Login from './components/Login';
+import Register from './components/Register';
 import Order from './components/Order';
 import { Routes, Route } from "react-router-dom";
 import Missing from './components/Missing';
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/add/:what" element={<Layout><AddArtAuction /></Layout>} />
           <Route path="/add/:what" element={<Layout><AddArtAuction /></Layout>} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="*" element={<Missing />} />
 
         </Routes>
