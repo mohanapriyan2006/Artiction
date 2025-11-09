@@ -1,17 +1,12 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import api from './api';
 
-import art1 from "../assets/art1.jpg";
-import art2 from "../assets/art2.jpg";
-import art3 from "../assets/art3.jpg";
-import art4 from "../assets/art4.jpg";
-import art5 from "../assets/art5.jpg";
-import art6 from "../assets/art6.jpg";
-import art7 from "../assets/art7.jpg";
+// (art image imports removed as unused)
 
 import Swal from 'sweetalert2';
-import axios from 'axios';
+// axios import removed as unused
 
 
 
@@ -66,7 +61,7 @@ export const DataProvider = ({ children }) => {
       const res = await api.get('/artworks');
       setArtworks(res.data.content)
     } catch (err) {
-      console.error('Error fetching data:', error);
+      console.error('Error fetching artworks:', err);
     }
   }
   useEffect(() => {
@@ -85,7 +80,7 @@ export const DataProvider = ({ children }) => {
       const res = await api.get('/auctions');
       setAuctions(res.data)
     } catch (err) {
-      console.error('Error fetching data:', error);
+      console.error('Error fetching auctions:', err);
     }
   }
   useEffect(() => {
@@ -126,6 +121,83 @@ export const DataProvider = ({ children }) => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLogined, setIsLogined] = useState(false);
+  // Simple local auth state
+  const [currentUser, setCurrentUser] = useState(null); // { username, role }
+
+  // localStorage keys for simple auth
+  const LS_USERS_KEY = 'artiction_users';
+  const LS_CURRENT_USER_KEY = 'artiction_current_user';
+
+  // Users array from localStorage
+  const [users, setUsers] = useState([]); // [{username, password, role, createdAt}]
+
+  // Load users and current user once
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(LS_USERS_KEY);
+      setUsers(Array.isArray(JSON.parse(raw)) ? JSON.parse(raw) : []);
+    } catch {
+      setUsers([]);
+    }
+    try {
+      const rawCur = localStorage.getItem(LS_CURRENT_USER_KEY);
+      const parsed = rawCur ? JSON.parse(rawCur) : null;
+      if (parsed && parsed.username && parsed.role) {
+        setCurrentUser(parsed);
+        setIsLogined(true);
+        setRole(parsed.role);
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  const persistUsers = (list) => {
+    setUsers(list);
+    localStorage.setItem(LS_USERS_KEY, JSON.stringify(list));
+  };
+
+  const registerUser = async ({ username, password, role }) => {
+    const uname = String(username || '').trim();
+    const pwd = String(password || '').trim();
+    const r = role === 'Artist' ? 'Artist' : 'Collector';
+    if (!uname || !pwd) return { ok: false, message: 'Username and password are required' };
+    if (pwd.length < 6) return { ok: false, message: 'Password must be at least 6 characters' };
+    const exists = users.some(u => u.username.toLowerCase() === uname.toLowerCase());
+    if (exists) return { ok: false, message: 'Username already exists' };
+    const newUser = { username: uname, password: pwd, role: r, createdAt: Date.now() };
+    const next = [...users, newUser];
+    persistUsers(next);
+    try {
+      Toast.fire({ icon: 'success', title: 'Registered successfully' });
+  } catch { /* ignore toast failure */ }
+    return { ok: true };
+  };
+
+  const loginUser = async ({ username, password, role }) => {
+    const uname = String(username || '').trim();
+    const pwd = String(password || '').trim();
+    if (!uname || !pwd) return { ok: false, message: 'Enter username and password' };
+    const found = users.find(u => u.username.toLowerCase() === uname.toLowerCase());
+    if (!found) return { ok: false, message: 'User not found' };
+    if (found.password !== pwd) return { ok: false, message: 'Invalid password' };
+    if (role && role !== found.role) return { ok: false, message: `Please login as ${found.role}` };
+    const cur = { username: found.username, role: found.role };
+    setCurrentUser(cur);
+    setIsLogined(true);
+    setRole(found.role);
+    localStorage.setItem(LS_CURRENT_USER_KEY, JSON.stringify(cur));
+    try {
+      Toast.fire({ icon: 'success', title: `Welcome ${found.username}` });
+  } catch { /* ignore toast failure */ }
+    return { ok: true, user: cur };
+  };
+
+  const logoutUser = () => {
+    setCurrentUser(null);
+    setIsLogined(false);
+    localStorage.removeItem(LS_CURRENT_USER_KEY);
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -364,6 +436,9 @@ export const DataProvider = ({ children }) => {
           isMenuOpen, setIsMenuOpen,
           toggleMenu,
           isLogined, setIsLogined,
+          currentUser,
+          users,
+          registerUser, loginUser, logoutUser,
           direction, setDirection,
           sortBy, setSortBy,
           search, handleSearch,

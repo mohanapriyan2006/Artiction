@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Home from './components/Home';
 import NavBar from './components/NavBar';
 import './App.css'
@@ -7,6 +7,7 @@ import Artworks from './components/Artworks';
 import Auction from './components/Auction';
 import Cart from './components/Cart';
 import Login from './components/Login';
+import Register from './components/Register';
 import Order from './components/Order';
 import { Routes, Route } from "react-router-dom";
 import Missing from './components/Missing';
@@ -44,6 +45,7 @@ const App = () => {
           <Route path="/profile" element={<Layout><Profile /></Layout>} />
           <Route path="/add/:what" element={<Layout><AddArtAuction /></Layout>} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/sample" element={<Sample />} />
           <Route path="*" element={<Missing />} />
 
