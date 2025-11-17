@@ -8,7 +8,7 @@
 [![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=spring)](https://spring.io/projects/spring-boot)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com/)
 
-### [artiction.netlify.app](https://artiction.netlify.app/)
+### [![logo](screenshots/artiction-logo.png)](https://artiction.netlify.app/)
 
 </div>
 
