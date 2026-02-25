@@ -24,6 +24,37 @@ Or maybe you're a collector, scrolling endlessly through generic marketplaces, w
 
 This isn't just another auction platform. It's where dreams meet canvas, where artists find their audience, and where collectors discover pieces that speak to their soul. Built by art lovers, for art lovers, Artiction transforms the cold, impersonal world of online art trading into a warm, vibrant community where every transaction tells a story.
 
+
+
+## 📸 See Artiction in Action
+
+*Because a picture is worth a thousand words, but a great UI is worth a thousand pictures.*
+
+<div align="center">
+
+### 🏠 **Home Sweet Home**
+*Where first impressions become lasting connections*
+![Homepage Experience](./screenshots/image1.png)
+
+### 🎨 **Artist's Canvas**
+*Your creative control center*
+![Artist Dashboard](./screenshots/image2.png)
+
+### 🎬 **The Full Experience**
+*Watch Artiction come alive*
+![Platform Preview](./screenshots/preview.gif)
+
+</div>
+
+---
+
+## 🎥 Behind the Scenes: Meet the Creators
+
+Curious about the story behind Artiction? Watch our founder explain the passion, the problems we're solving, and the future we're building:
+
+### [🚀 **Watch Our Story**](https://www.linkedin.com/posts/mohanapriyan-m2006_java-springboot-reactjs-activity-7321169284607492096-5HEY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEdfjWABL_2j98un4JlBtZDRvHOOIBs2IsE)
+*3-minute journey from concept to community*
+
 ## ✨ Why Artists & Collectors Choose Artiction
 
 ### 🧑‍🎨 **For Artists: Your Creative Journey, Amplified**
@@ -113,35 +144,6 @@ cd backend/artiction
 - Java 17+ (for enterprise-grade backend stability)
 - MySQL 8.0+ (for data that scales with your dreams)
 - 4GB RAM (because great art needs breathing room)
-
-## 📸 See Artiction in Action
-
-*Because a picture is worth a thousand words, but a great UI is worth a thousand pictures.*
-
-<div align="center">
-
-### 🏠 **Home Sweet Home**
-*Where first impressions become lasting connections*
-![Homepage Experience](./screenshots/image1.png)
-
-### 🎨 **Artist's Canvas**
-*Your creative control center*
-![Artist Dashboard](./screenshots/image2.png)
-
-### 🎬 **The Full Experience**
-*Watch Artiction come alive*
-![Platform Preview](./screenshots/preview.gif)
-
-</div>
-
----
-
-## 🎥 Behind the Scenes: Meet the Creators
-
-Curious about the story behind Artiction? Watch our founder explain the passion, the problems we're solving, and the future we're building:
-
-### [🚀 **Watch Our Story**](https://www.linkedin.com/posts/mohanapriyan-m2006_java-springboot-reactjs-activity-7321169284607492096-5HEY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEdfjWABL_2j98un4JlBtZDRvHOOIBs2IsE)
-*3-minute journey from concept to community*
 
 
 ## 🙏 Acknowledgments & Love
